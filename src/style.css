@@ -730,10 +730,12 @@ body.modal-open {
   border: 2px solid var(--ink);
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  transition: transform .15s;
-  /* position·z-index는 maplibre의 .maplibregl-marker(absolute) 그대로 사용.
-     production 빌드 시 CSS 로드 순서로 인해 override되어 마커 위치가
-     깨지는 문제가 있었음 (dev에선 우리 CSS가 먼저라 OK, prod에선 반대). */
+  /* transform transition은 maplibre가 매 프레임 갱신하는 마커 위치
+     transform과 충돌해 드래그 시 마커 lag(따라오다 catch-up) 발생.
+     hover scale에만 transition이 필요한데, 그건 :hover 룰에 명시. */
+  /* position은 maplibre의 .maplibregl-marker(absolute)를 그대로 사용.
+     z-index만 명시해 권역 라벨(z=1) 위에 그려지게 함. */
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
