@@ -23,6 +23,7 @@ html, body, #app {
   font-family: 'Nanum Myeongjo', 'Noto Serif KR', 'Songti SC', 'STSong', serif;
   color: var(--ink);
   background: var(--bg-paper);
+  overflow: hidden;
 }
 
 #app {
