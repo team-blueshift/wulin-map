@@ -910,36 +910,29 @@ body.modal-open {
     transition: none;
   }
 
-  /* 핸들 — sticky 상단 클릭/드래그 영역 (시트 콘텐츠 스크롤되어도 항상 보임) */
+  /* 핸들 — 시트 콘텐츠 normal flow 첫 element. 스크롤되면 콘텐츠와 함께 스크롤. */
   .sheet-handle {
     display: block;
-    position: sticky;
-    top: 0;
-    left: 0;
+    position: relative;
     appearance: none;
     -webkit-appearance: none;
     width: 100%;
     height: 28px;
-    background: var(--bg-paper);
+    background-color: var(--bg-paper);
     border: none;
     padding: 0;
     margin: 0;
-    cursor: grab;
-    z-index: 3;
+    cursor: pointer;
     touch-action: none;
     font: inherit;
     color: inherit;
-    /* 가운데 visible 핸들 막대 */
-    background-image: linear-gradient(var(--line), var(--line));
-    background-position: center 10px;
-    background-size: 44px 5px;
-    background-repeat: no-repeat;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
+    flex-shrink: 0;
   }
 
   .sheet-handle::after {
-    /* 디버깅용 보조 표시 (모바일 button 기본 스타일에 가려질 경우 대비) */
+    /* visible 핸들 막대 */
     content: '';
     display: block;
     position: absolute;
