@@ -881,10 +881,10 @@ body.modal-open {
     bottom: 0;
     left: 0;
     right: 0;
-    /* 시트 높이를 동적으로 — peek 또는 full */
+    /* 시트 높이를 동적으로 — peek 또는 full. max는 드래그 한계 */
     height: var(--sheet-peek);
-    max-height: 92vh;
-    max-height: 92dvh;
+    max-height: 80vh;
+    max-height: 80dvh;
     width: 100%;
     border-right: none;
     border-top: 2px solid var(--line);

@@ -712,7 +712,7 @@ function initBottomSheet(): void {
   };
 
   const getMaxHeightPx = (): number => {
-    return Math.round(window.innerHeight * 0.92);
+    return Math.round(window.innerHeight * 0.8);
   };
 
   const onPointerDown = (e: PointerEvent) => {
