@@ -910,10 +910,12 @@ body.modal-open {
     transition: none;
   }
 
-  /* 핸들 — 시트 콘텐츠 normal flow 첫 element. 스크롤되면 콘텐츠와 함께 스크롤. */
+  /* 핸들 — sticky로 시트 상단 고정. 콘텐츠 스크롤되어도 항상 보임. */
   .sheet-handle {
     display: block;
-    position: relative;
+    position: sticky;
+    top: 0;
+    left: 0;
     appearance: none;
     -webkit-appearance: none;
     width: 100%;
@@ -929,6 +931,9 @@ body.modal-open {
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
     flex-shrink: 0;
+    z-index: 3;
+    /* 콘텐츠 스크롤 시 핸들 아래로 들어가는 게 자연스럽게 보이도록 부드러운 그림자 */
+    box-shadow: 0 2px 6px rgba(43, 32, 20, 0.05);
   }
 
   .sheet-handle::after {
