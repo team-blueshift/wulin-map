@@ -142,7 +142,11 @@ const map = new Map({
   minZoom: 2,
   maxZoom: 10,
   bearing: 0,
-  // maxBounds 임시 제거 (모바일 viewport 클램프 검증)
+  // 동아시아 무협 무대 — 인도·일본·시베리아·동남아 + 모바일 여유
+  maxBounds: [
+    [40, -10],
+    [170, 80],
+  ],
   renderWorldCopies: false,
 });
 
