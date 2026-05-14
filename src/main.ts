@@ -254,7 +254,10 @@ function renderMarkers() {
     `);
 
     const [lat, lon] = f.base.coords;
-    const marker = new Marker({ element: el }).setLngLat([lon, lat]).setPopup(popup).addTo(map);
+    const marker = new Marker({ element: el, anchor: 'center' })
+      .setLngLat([lon, lat])
+      .setPopup(popup)
+      .addTo(map);
 
     el.addEventListener('click', () => {
       showInfo(f);
@@ -688,7 +691,7 @@ function initBottomSheet(): void {
   };
 
   const getMaxHeightPx = (): number => {
-    return Math.round(window.innerHeight * 0.35);
+    return Math.round(window.innerHeight * 0.92);
   };
 
   const onPointerDown = (e: PointerEvent) => {
