@@ -246,9 +246,8 @@ window.addEventListener('orientationchange', () => {
   setTimeout(resizeAndRefresh, 100);
 });
 
-// #map 자체의 size 변화도 직접 감지 (ResizeObserver)
-const ro = new ResizeObserver(() => resizeAndRefresh());
-ro.observe(map.getContainer());
+// ResizeObserver는 iOS Safari 도구바 변동마다 트리거되어 마커가 깜빡이는
+// 문제 있음. window resize·orientationchange·시트 transitionend로 충분.
 
 // 지도 빈 곳 클릭 → 미선택 (hint로 복귀)
 map.on('click', (e) => {
