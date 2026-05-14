@@ -739,6 +739,11 @@ function initBottomSheet(): void {
     didMove = false;
     sidebar.classList.add('dragging');
     (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
+    // 시트 드래그 중에는 지도 interaction 비활성화 (지도로 손가락이 빠져도 panning 안 됨)
+    map.dragPan.disable();
+    map.scrollZoom.disable();
+    map.doubleClickZoom.disable();
+    map.touchZoomRotate.disable();
   };
 
   const onPointerMove = (e: PointerEvent) => {
@@ -755,6 +760,12 @@ function initBottomSheet(): void {
     isDragging = false;
     sidebar.classList.remove('dragging');
     sidebar.style.height = '';
+
+    // 지도 interaction 복원
+    map.dragPan.enable();
+    map.scrollZoom.enable();
+    map.doubleClickZoom.enable();
+    map.touchZoomRotate.enable();
 
     if (!didMove) {
       sidebar.classList.toggle('open');
