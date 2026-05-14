@@ -901,8 +901,8 @@ body.modal-open {
   }
 
   #sidebar.open {
-    height: 40vh;
-    height: 40dvh;
+    height: 80vh;
+    height: 80dvh;
   }
 
   #sidebar.dragging {
