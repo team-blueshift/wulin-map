@@ -210,7 +210,21 @@ function relocateMapControl(): void {
   }
 }
 
-window.matchMedia('(max-width: 768px)').addEventListener('change', relocateMapControl);
+window.matchMedia('(max-width: 768px)').addEventListener('change', () => {
+  relocateMapControl();
+  map.resize();
+});
+
+// 시트 height 변화(애니메이션) 끝나면 지도 resize — 마커 위치 보정
+document.getElementById('sidebar')?.addEventListener('transitionend', (e) => {
+  if (e.propertyName === 'height') map.resize();
+});
+
+// viewport 변화 (특히 모바일 도구바 변동) 시 resize
+window.addEventListener('resize', () => map.resize());
+window.addEventListener('orientationchange', () => {
+  setTimeout(() => map.resize(), 100);
+});
 
 // 지도 빈 곳 클릭 → 미선택 (hint로 복귀)
 map.on('click', (e) => {
@@ -674,7 +688,7 @@ function initBottomSheet(): void {
   };
 
   const getMaxHeightPx = (): number => {
-    return Math.round(window.innerHeight * 0.92);
+    return Math.round(window.innerHeight * 0.35);
   };
 
   const onPointerDown = (e: PointerEvent) => {

@@ -878,8 +878,8 @@ body.modal-open {
     right: 0;
     /* 시트 높이를 동적으로 — peek 또는 full */
     height: var(--sheet-peek);
-    max-height: 92vh;
-    max-height: 92dvh;
+    max-height: 35vh;
+    max-height: 35dvh;
     width: 100%;
     border-right: none;
     border-top: 2px solid var(--line);
@@ -897,8 +897,8 @@ body.modal-open {
   }
 
   #sidebar.open {
-    height: 92vh;
-    height: 92dvh;
+    height: 35vh;
+    height: 35dvh;
   }
 
   #sidebar.dragging {
