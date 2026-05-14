@@ -5,7 +5,7 @@ export default defineConfig({
   base: '/',
   server: {
     port: 5180,
-    host: '127.0.0.1',
+    host: true,  // LAN 접근 허용 (iPhone Safari 디버깅 등)
   },
   assetsInclude: ['**/*.yaml'],
   build: {

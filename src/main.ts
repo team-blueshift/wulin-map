@@ -181,7 +181,10 @@ map.on('load', () => {
     if (r.size) el.style.fontSize = `${r.size}px`;
     el.textContent = r.ko;
     const [lat, lon] = r.coords;
-    new Marker({ element: el, anchor: 'center' }).setLngLat([lon, lat]).addTo(map);
+    const marker = new Marker({ element: el, anchor: 'center' })
+      .setLngLat([lon, lat])
+      .addTo(map);
+    allMarkerRefs.push(marker);
   }
 });
 
@@ -210,21 +213,42 @@ function relocateMapControl(): void {
   }
 }
 
+// 모든 마커(세력 + 권역 라벨)의 transform 강제 갱신
+// — iOS Safari에서 viewport 변화 시 maplibre 자동 갱신이 약한 경우 대비
+const allMarkerRefs: Marker[] = [];
+function refreshAllMarkers(): void {
+  for (const m of allMarkerRefs) {
+    m.setLngLat(m.getLngLat());
+  }
+}
+
+function resizeAndRefresh(): void {
+  map.resize();
+  // 다음 프레임에 한 번 더 — resize 적용 후 좌표 재계산
+  requestAnimationFrame(() => {
+    refreshAllMarkers();
+  });
+}
+
 window.matchMedia('(max-width: 768px)').addEventListener('change', () => {
   relocateMapControl();
-  map.resize();
+  resizeAndRefresh();
 });
 
-// 시트 height 변화(애니메이션) 끝나면 지도 resize — 마커 위치 보정
+// 시트 height 변화(애니메이션) 끝나면 지도 resize + 마커 갱신
 document.getElementById('sidebar')?.addEventListener('transitionend', (e) => {
-  if (e.propertyName === 'height') map.resize();
+  if (e.propertyName === 'height') resizeAndRefresh();
 });
 
 // viewport 변화 (특히 모바일 도구바 변동) 시 resize
-window.addEventListener('resize', () => map.resize());
+window.addEventListener('resize', resizeAndRefresh);
 window.addEventListener('orientationchange', () => {
-  setTimeout(() => map.resize(), 100);
+  setTimeout(resizeAndRefresh, 100);
 });
+
+// #map 자체의 size 변화도 직접 감지 (ResizeObserver)
+const ro = new ResizeObserver(() => resizeAndRefresh());
+ro.observe(map.getContainer());
 
 // 지도 빈 곳 클릭 → 미선택 (hint로 복귀)
 map.on('click', (e) => {
@@ -235,7 +259,11 @@ map.on('click', (e) => {
 });
 
 function renderMarkers() {
-  for (const m of markers.values()) m.remove();
+  for (const m of markers.values()) {
+    m.remove();
+    const idx = allMarkerRefs.indexOf(m);
+    if (idx >= 0) allMarkerRefs.splice(idx, 1);
+  }
   markers.clear();
 
   for (const f of factions) {
@@ -258,6 +286,7 @@ function renderMarkers() {
       .setLngLat([lon, lat])
       .setPopup(popup)
       .addTo(map);
+    allMarkerRefs.push(marker);
 
     el.addEventListener('click', () => {
       showInfo(f);
