@@ -197,7 +197,22 @@ map.on('load', () => {
   showHint();
   document.getElementById('count')!.textContent = String(factions.length);
   relocateMapControl();
+  applyMobilePadding();
 });
+
+// 모바일에서 시트가 가린 영역을 viewport center 계산에서 제외
+function applyMobilePadding(): void {
+  if (!window.matchMedia('(max-width: 768px)').matches) {
+    map.setPadding({ top: 0, bottom: 0, left: 0, right: 0 });
+    return;
+  }
+  const sidebar = document.getElementById('sidebar');
+  const peekVar = sidebar
+    ? parseFloat(getComputedStyle(sidebar).getPropertyValue('--sheet-peek')) || 240
+    : 240;
+  // 상단 툴바도 약간 제외 (헤더 + 카테고리 칩 ≈ 80px)
+  map.setPadding({ top: 80, bottom: peekVar, left: 0, right: 0 });
+}
 
 // 모바일/데스크톱 전환에 따라 maplibre 컨트롤 부모 변경
 function relocateMapControl(): void {
@@ -232,6 +247,7 @@ function resizeAndRefresh(): void {
 
 window.matchMedia('(max-width: 768px)').addEventListener('change', () => {
   relocateMapControl();
+  applyMobilePadding();
   resizeAndRefresh();
 });
 
