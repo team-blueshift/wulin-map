@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  // GitHub Pages 배포 경로 (https://team-blueshift.github.io/wulin-map/)
-  base: '/wulin-map/',
+  // 커스텀 도메인 루트 (https://murimap.com/)
+  base: '/',
   server: {
     port: 5180,
     host: '127.0.0.1',
