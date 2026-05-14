@@ -954,11 +954,11 @@ body.modal-open {
     margin-bottom: 8px;
   }
 
-  /* 지도 height = viewport - peek + 시트 둥근 모서리(16px) — 시트 corner 바깥 영역도 지도가 채움 */
+  /* 지도는 viewport 전체에 그림 — 시트가 위에 덮음 (좌표 변환 정확성 우선) */
   #map {
     width: 100%;
-    height: calc(100vh - var(--sheet-peek) + 16px);
-    height: calc(100dvh - var(--sheet-peek) + 16px);
+    height: 100vh;
+    height: 100dvh;
   }
 
   /* maplibregl +/- 컨트롤 — 모바일에선 툴바 바로 아래 우측 */
