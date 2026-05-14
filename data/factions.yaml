@@ -1,0 +1,1164 @@
+# 한국 신무협 세력 데이터 (v2.1 — 정파 디테일 추가)
+#
+# 2020년대 한국 무협 웹소설·웹툰(화산귀환·나노마신·광마회귀·망나니 소교주로 환생했다 등)에서
+# 공통으로 등장하는 세력 풀. 자세한 기준은 docs/factions-reference.md 참고.
+#
+# 좌표계: WGS84 [위도, 경도]
+# coord_confidence:
+#   high   = 실존 지명, 좌표 명확 (예: 숭산, 라싸, 자금성)
+#   medium = 실존 지명이지만 본거지 정확한 위치 추정
+#   low    = 가공·위치 모호·작품마다 다름
+#
+# 데이터 구조:
+#   common — 작품 막론 공통 정보 (한국 무협 일반론 + 나무위키 기준)
+#   variants — 작품별 묘사 차이 (작품명을 키로, figures/role/note 등)
+#     레퍼런스 작품 풀: 화산귀환, 나노마신, 광마회귀, 망나니 소교주로 환생했다, 북검전기
+#     자유롭게 추가 가능 (variants 키는 정해진 enum 없음)
+
+# ═════════════════════════════════════════════════════════
+# 작품 카탈로그 (variants의 키와 매칭)
+#
+# 각 작품:
+#   author: 작가 (웹툰화된 경우 스토리/작화 모두 표기)
+#   platforms: [{ type, host }] — type=웹소설/웹툰/출판
+#   summary: 한 줄 줄거리
+# ═════════════════════════════════════════════════════════
+works:
+  # ─── 정파 중심 작품 풀 ───
+  화산귀환:
+    author: 비가
+    platforms:
+      - { type: 웹소설, host: 네이버 시리즈 }
+      - { type: 웹툰, host: 네이버 웹툰 }
+    summary: |
+      천하삼대검수 매화검존이 100년 후 어린 시절로 환생해
+      망해버린 화산파를 살리기 위해 분투하는 이야기.
+
+  북검전기:
+    author: 우각
+    platforms:
+      - { type: 웹소설, host: "카카오페이지·네이버 시리즈·리디·미스터블루 등" }
+      - { type: 웹툰, host: 무툰 }
+    summary: |
+      북벽의 후예 진무원이 북천문을 부활시켜 밀야·운중천 등
+      세력들과 격돌하는 정통 무협물.
+
+  일편독심:
+    author: 천사같은
+    platforms:
+      - { type: 웹소설, host: 노벨피아 }
+    summary: |
+      불우한 남자가 무협소설 속 사천당가의 악녀 당소소에게 빙의되는
+      TS·빙의 무협. 정천무관에서 구파일방 무공을 두루 다룸.
+
+  시한부 천재가 살아남는 법:
+    author: 청시소
+    platforms:
+      - { type: 웹소설, host: "문피아·네이버 시리즈" }
+    summary: |
+      하늘이 내린 재능으로 시한부가 된 주인공이
+      몸을 고치고자 무림을 누비는 퓨전 무협.
+
+  군림천하:
+    author: 용대운
+    platforms:
+      - { type: 웹소설, host: "카카오페이지·네이버 시리즈·북큐브·리디 등" }
+      - { type: 웹툰, host: "카카오페이지 (2025-)" }
+      - { type: 출판, host: 파피루스 }
+    summary: |
+      쇠락해가는 종남파를 이끌고 무림 제패를 꿈꾸는
+      진산월의 이야기. 한국 신무협 정전급 베스트셀러.
+
+  신마경천기:
+    author: "일황 (웹툰: 곰국)"
+    platforms:
+      - { type: 웹소설, host: "카카오페이지·네이버 시리즈·리디 등" }
+      - { type: 웹툰, host: 카카오웹툰 }
+    summary: |
+      죽음 직후 환생한 주인공이 정파 무림의 위선자들에 맞서
+      복수하며 성장하는 이야기.
+
+  광마회귀:
+    author: 유진성
+    platforms:
+      - { type: 웹소설, host: 네이버 시리즈 }
+      - { type: 웹툰, host: "네이버 웹툰" }
+    summary: |
+      광증을 가진 남자가 평범했던 점소이 시절로 회귀하여
+      자신과 약자들을 지키기 위해 강호에 맞선다.
+
+  망나니 소교주로 환생했다:
+    author: 대은호
+    platforms:
+      - { type: 웹소설, host: 네이버 시리즈 }
+      - { type: 웹툰, host: "네이버 웹툰" }
+    summary: |
+      정파의 천재 무인이 독살당했다가 마교 소교주의 몸으로
+      환생해 정파로 돌아가기 위해 분투하는 이야기.
+
+  나노마신:
+    author: 한중월야
+    platforms:
+      - { type: 웹소설, host: "문피아·네이버 시리즈" }
+      - { type: 웹툰, host: 네이버 웹툰 }
+    summary: |
+      마교의 최하위 서열 천여운이 미래에서 온 후손으로부터
+      나노머신을 주입받아 인생이 완전히 바뀌는 이야기.
+
+  # ─── 세가 중심 작품 ───
+  남궁세가 손녀딸의 귀환:
+    author: The eun (소설) · 적새/휘모리 (웹툰)
+    platforms:
+      - { type: 웹소설, host: 카카오페이지 }
+      - { type: 웹툰, host: "카카오페이지·카카오웹툰" }
+    summary: |
+      살수에게 죽은 후 13살로 회귀하여 남궁세가로 돌아가
+      가족을 되찾으며 펼쳐지는 무협 로맨스.
+
+  사천당가의 검신급 소가주가 되었다:
+    author: 화계(火鷄)
+    platforms:
+      - { type: 웹소설, host: "문피아·네이버 시리즈" }
+    summary: |
+      독과 암기의 명가 사천당가에서 전생의 검술 기억을 깨운
+      소가주의 평범하지 않은 일상.
+
+  하북팽가 막내아들:
+    author: 무향(武香)
+    platforms:
+      - { type: 웹소설, host: 문피아 }
+    summary: |
+      도왕이라 불렸던 팽지혁이 방구석 둔재였던 하북팽가
+      사공자(막내아들)로 환생하는 회귀 무협.
+
+  하북팽가 검술천재:
+    author: 이도훈
+    platforms:
+      - { type: 웹소설, host: "카카오페이지·네이버 시리즈·리디·미스터블루 등" }
+    summary: |
+      하북 최고의 겁쟁이라 불리던 팽한빈이 토사구팽을 당한 뒤
+      20년 전으로 회귀해 검술천재로 부활하는 이야기.
+
+factions:
+  # ═════════════════════════════════════════════════════════
+  # 정파 — 구파일방 (10파 + 1방)
+  # ═════════════════════════════════════════════════════════
+  - id: shaolin
+    name_ko: 소림사
+    name_zh: 少林寺
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 숭산
+      province: 하남 등봉
+      coords: [34.5103, 112.9362]
+      coord_confidence: high
+    notes: |
+      정파 태산북두. 권법·곤법·내공의 본산.
+    common:
+      aliases: [태산북두, 천하제일사찰]
+      martial_arts: [역근경, 세수경, 72절기, 백보신권, 금강불괴]
+      figures: [달마, 혜능]
+      traits: 정파의 정신적 중심. 외공·내공의 정점이자 구파일방 수장.
+      history: |
+        달마가 창건한 불교 사찰에서 출발. 한국 신무협에선 정파 무림맹의
+        정신적 지주이자 늘 정점에 있는 문파로 묘사된다.
+    variants:
+      화산귀환:
+        figures: [법정(장문인), 법계(일장로)]
+        role: 구파일방 수장. 정파의 정신적 지주.
+        note: 법계는 천면수사와 대등한 무위의 일장로.
+      북검전기:
+        figures: [불영신승, 설원, 혈귀승 설공]
+        role: 정파 거두.
+        note: 설공은 달마삼검을 익힌 유일한 인물.
+      일편독심:
+        figures: [보현 방장]
+        role: 정파 최고 문파.
+      시한부 천재가 살아남는 법:
+        figures: [범허(방장), 사대금강 원적]
+        role: 정파제일의 위상. 범허는 절세고수 중 손꼽힘.
+      군림천하:
+        figures: [대방선사(36대 방장), 팔대신승]
+        role: 중원무림 태산북두. 종남파 구파 복귀를 공식 지지.
+      신마경천기:
+        figures: [불성 방장승]
+        role: 정파무림 양대강자 중 하나. 의혈문 이옥검주로 활동.
+
+  - id: wudang
+    name_ko: 무당파
+    name_zh: 武當派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 무당산
+      province: 호북 단강구
+      coords: [32.4019, 111.0042]
+      coord_confidence: high
+    notes: |
+      도가 무파. 검법·태극 내공. 소림과 더불어 정파의 양대 산맥.
+    common:
+      aliases: [도가 무파의 종주]
+      martial_arts: [태극권, 태극검, 양의검법, 무당장권, 진무십이검]
+      figures: [장삼풍, 진무대제]
+      traits: 도가의 부드러움(柔)을 무공으로 구현. 소림과 함께 정파 양대 산맥.
+      history: |
+        장삼풍이 개창한 도가 무파. 무당산의 자연 속에서 태극의 이치를
+        무공으로 체화. 한국 신무협에서도 소림과 더불어 늘 정점.
+    variants:
+      화산귀환:
+        figures: [허도(장문인), 허산, 무진]
+        role: 천하검 종리곡과 더불어 구파 정점급 무파.
+      북검전기:
+        figures: [적엽진인(창술 대가), 해검진인]
+        role: 정파 거두. 창술 명가로 묘사.
+      일편독심:
+        figures: [현태진인(극천)]
+        role: 도교 무학의 정점.
+      시한부 천재가 살아남는 법:
+        figures: [장삼봉(개파조사, 고금제일검), 현공(장문인), 옥암(후계자)]
+        role: 정파 양대 산맥.
+        note: 장삼봉은 작중 시점엔 전설로만 언급.
+      군림천하:
+        figures: [현령진인(32대 장문인), 무당십이검(청운·청현·청명)]
+        role: 구대문파 양대산맥.
+        note: 기산취악 종남파 퇴출 주도, 이후 중립으로 전환.
+
+  - id: huashan
+    name_ko: 화산파
+    name_zh: 華山派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 화산
+      province: 섬서 화음
+      coords: [34.4836, 110.0867]
+      coord_confidence: high
+    notes: |
+      매화검법·자하신공. 한국 신무협 주역 단골(화산귀환).
+    common:
+      aliases: [매화의 검파]
+      martial_arts: [이십사수매화검법, 자하신공, 매화검진, 천섬광검]
+      figures: [매화검존(전설)]
+      traits: 매화를 모티프로 한 검파. 검(劍)의 정점 중 하나.
+      history: |
+        섬서 화산에 자리잡은 검파. 옛 무협에선 검종(劍宗)·기종(氣宗)
+        논쟁의 무대였고, 한국 신무협에선 매화검존 전설을 통해 부흥하는
+        서사가 자주 사용됨.
+    variants:
+      화산귀환:
+        figures: [청명(매화검존, 주인공), 운암, 조한, 윤종, 백천, 송강유]
+        role: 작품의 주역. **정파 부흥**과 천우맹 결성의 중심.
+        note: |
+          작중 시점 직전 [사패련](https://namu.wiki/w/화산귀환/설정)의 공격으로
+          한 차례 멸문 위기. 청명의 회귀로 옛 동맹(사천당가 등) 부활시키며 부흥.
+      북검전기:
+        figures: [칠성 장문인]
+        role: 정파 정의의 한 축. 수라조의 진실을 고발.
+      시한부 천재가 살아남는 법:
+        figures: [율하낭랑(장문인), 유현]
+        role: 율하낭랑은 구파 수장 중 검재 최정점. 유현은 주인공과 우정.
+      군림천하:
+        figures: [용진산(검봉·장문인), 매장원(2인자·쾌의당 간자), 매화사절(송인혁·북문도)]
+        role: 종남파와 섬서성 패권 경쟁.
+        note: 회람연에서 1무 4패로 종남에 완패. 매장원은 쾌의당 첩자.
+
+  - id: emei
+    name_ko: 아미파
+    name_zh: 峨嵋派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 아미산
+      province: 사천 아미산시
+      coords: [29.5201, 103.3315]
+      coord_confidence: high
+    notes: |
+      여성 중심 문파. 검법·내공.
+    common:
+      aliases: [비구니의 검]
+      martial_arts: [아미검법, 구양신공(일부), 복호장]
+      figures: [곽양(의천도룡기 전승)]
+      traits: 비구니 중심의 여성 정파. 사천 무림의 한 축.
+      history: |
+        곽양이 개창했다는 전설. 사천 아미산을 본거지로 하며,
+        한국 신무협에선 사천당가·청성파와 함께 사천 정파 트리오를 이룸.
+    variants:
+      화산귀환:
+        figures: [관해사태(장문인), 금소, 금화]
+        role: 사천 정파의 한 축.
+        note: 사패련과의 충돌에서 관해사태 전사.
+      일편독심:
+        figures: [무검신니]
+        role: 여성 정파 무공 전수자.
+      군림천하:
+        figures: [자죽신니(최고수), 흑미륵 원정]
+        role: 종남파 우호 문파.
+        note: 기산취악 당시 유일하게 종남파 축출에 반대.
+
+  - id: kunlun
+    name_ko: 곤륜파
+    name_zh: 崑崙派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 곤륜산
+      province: 청해
+      coords: [35.60, 94.00]
+      coord_confidence: medium
+    notes: |
+      청해 서역의 정파. 마교 침공 시 첫 방어선.
+    common:
+      aliases: [서역의 정파, 멸마의 검]
+      martial_arts: [양의검법, 운룡대팔식, 정양침, 곤륜검법]
+      figures: [곤륜파 역대 장문인]
+      traits: 서역의 정파. 마교와 가장 가까운 거리에 있어 마교 대항의 최전선.
+      history: |
+        청해 곤륜산을 본거지로 한 도가 검파. 한국 신무협에선 마교 침공 시
+        곤륜이 먼저 무너지는 묘사가 잦아 "비운의 정파" 이미지가 굳음.
+    variants:
+      화산귀환:
+        figures: []
+        role: 작중 시점에선 마교에 먼저 공격당해 멸문지경에 처한 상태.
+      군림천하:
+        figures: [태허진인(장문인), 종리표]
+        role: 보수적 입장. 종남파 복귀 최종 지지.
+        note: 개인 수양 중시, 구파일방 변화 회피 성향.
+      신마경천기:
+        figures: [현학진인(장문인)]
+        role: 의혈문 삼옥검주. 정파 연합 참여.
+
+  - id: zhongnan
+    name_ko: 종남파
+    name_zh: 終南派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 종남산
+      province: 섬서 서안
+      coords: [33.92, 108.83]
+      coord_confidence: high
+    notes: |
+      도가 무파. 전진교 기반.
+    common:
+      aliases: [전진교 본가]
+      martial_arts: [전진검법, 종남검법, 천강북두진]
+      figures: [왕중양, 전진칠자, 구처기]
+      traits: 도교 전진교의 본거. 정파 중에서도 도가 색채가 가장 짙음.
+      history: |
+        송말 왕중양이 종남산에서 전진교를 창건. 중양궁이 위치하며
+        전진칠자가 강호에 명성을 떨침. 한국 신무협에선 검파로 굳어짐.
+    variants:
+      화산귀환:
+        figures: [종리곡(천하검), 이송백, 진금룡]
+        role: 구파일방 최상위 검파.
+        note: 종리곡은 "천하검"으로 불리며 구파 정점급 검수로 묘사.
+      시한부 천재가 살아남는 법:
+        figures: [구양신(전대 장문인), 여일신(대장로), 위지묘화(검룡), 정혜]
+        role: 정혜는 차세대 종천동으로 성장.
+      군림천하:
+        figures: [진산월(주인공), 낙일방, 동중산]
+        role: 작품 주역 문파.
+        note: |
+          기산취악으로 한 차례 구파일방에서 퇴출됐다가 복귀.
+          진산월(검신) 중심의 부흥 서사.
+
+  - id: kongtong
+    name_ko: 공동파
+    name_zh: 崆峒派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 공동산
+      province: 감숙 평량
+      coords: [35.55, 106.59]
+      coord_confidence: high
+    notes: |
+      감숙 서북. 칠상권. 마교 대항 전선.
+    common:
+      aliases: [칠상권의 본산]
+      martial_arts: [칠상권, 공동검법, 복마검]
+      figures: []
+      traits: 서북의 정파. 칠상권(七傷拳)이 진산절기.
+      history: |
+        감숙 공동산을 본거지로. 무공은 강하지만 인지도는 구파 중
+        낮은 편이라 작품마다 비중이 들쑥날쑥함.
+    variants:
+      화산귀환:
+        figures: [종리형(복마산인)]
+        role: 소림에 편승하는 구파 중추 역할.
+      북검전기:
+        figures: [무진]
+        role: 과거 사건과의 연결고리.
+      일편독심:
+        figures: []
+        role: 칠살검법으로 묘사되는 문파.
+      군림천하:
+        figures: [명량자(장문인), 불치도인(실질 최고수), 팔담검객(암살부대)]
+        role: 종남파 적대.
+        note: 팔담검객으로 종남파 암살 시도, 낙일방 기습.
+
+  - id: dianchang
+    name_ko: 점창파
+    name_zh: 點蒼派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 점창산(창산)
+      province: 운남 대리
+      coords: [25.86, 100.08]
+      coord_confidence: high
+    notes: |
+      운남 검파. 회풍불류 검법.
+    common:
+      aliases: [회풍불류의 검파]
+      martial_arts: [회풍불류 검법, 사일검법, 점창검법]
+      figures: []
+      traits: 운남의 검파. 빠른 찌르기와 한 호흡에 끝내는 검술.
+      history: |
+        운남 대리국 시절부터 이어진 검파. 회풍불류(回風拂柳) 검법으로
+        유명하며 한국 신무협에서도 단골 출연.
+    variants:
+      화산귀환:
+        figures: [진송원(장문인)]
+        role: 사패련 장일소에게 굴욕을 당하며 최후 선택을 한 비극의 장문인.
+      군림천하:
+        figures: [장거릉(장문인), 사효심(십방랑자·최고수), 조빙심]
+        role: 종남파 적대, 서장과 연관.
+        note: 기산취악 종남파 퇴출 찬성, 복귀 반대.
+
+  - id: qingcheng
+    name_ko: 청성파
+    name_zh: 靑城派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 청성산
+      province: 사천 도강언
+      coords: [30.9230, 103.5040]
+      coord_confidence: high
+    notes: |
+      사천 도가 문파. 사천 무림의 한 축.
+    common:
+      aliases: [사천 도가의 종주]
+      martial_arts: [청성검법, 청풍검법, 도가 내공]
+      figures: []
+      traits: 사천 도가 정파. 사천당가·아미파와 함께 사천 무림 트리오.
+      history: |
+        사천 청성산은 도교 발상지 중 하나. 청성파는 그 자연 정기를
+        무공으로 체화한 도가 검파로 그려짐.
+    variants:
+      화산귀환:
+        figures: [벽현자(장문인)]
+        role: 만인방의 습격을 받은 비극의 문파.
+        note: 벽현자가 사파에 의해 사망하며 정파 분노의 불씨가 됨.
+      일편독심:
+        figures: [운령(청홍검봉)]
+        role: 우아한 검술의 전수자.
+      군림천하:
+        figures: [벽성자(장문인), 남해일(차세대)]
+        role: 점창과 친분, 중립적 입장.
+      신마경천기:
+        figures: []
+        role: 백년 전 천하제일문파.
+        note: |
+          청운적하검·파랑검해진 보유. 창존문 멸문에 협력했다가
+          후일 혁운성에게 멸문됨.
+
+  - id: hainan
+    name_ko: 해남파
+    name_zh: 海南派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 해남도
+      province: 해남성
+      coords: [19.20, 109.80]
+      coord_confidence: medium
+    notes: |
+      남방 검파. 한국 신무협에서 구파일방에 새로 편입.
+    common:
+      aliases: [남방의 검, 해풍의 검파]
+      martial_arts: [해남검법, 광풍쾌검]
+      figures: []
+      traits: 한국 신무협에서 구파일방으로 격상된 남방 검파.
+      history: |
+        옛 무협에선 새외 변방으로 처리되던 해남도가, 한국 신무협에서
+        구파일방의 한 자리를 차지하게 된 게 가장 큰 트렌드 변화.
+        최근 신무협 트렌드로 굳어짐.
+    variants:
+      화산귀환:
+        figures: [금양백(장문인급)]
+        role: 화산과 동맹. 남방 정파의 한 축.
+        note: 화산 주도 천우맹의 핵심 구성원.
+      # 해남파는 한국 신무협 신규 편입이라 다른 작품에서 비중 작음.
+      # 등장 시 추가 예정.
+
+  - id: gaibang
+    name_ko: 개방
+    name_zh: 丐幫
+    category: 정파
+    subcategory: 구파일방
+    base:
+      name: 변량(개봉) 총타
+      province: 하남 개봉
+      coords: [34.7972, 114.3076]
+      coord_confidence: medium
+    notes: |
+      거지 연합. 전국 분타. 강룡십팔장·타구봉법.
+    common:
+      aliases: [천하제일대방, 거지 무리]
+      martial_arts: [강룡십팔장, 타구봉법, 항룡십팔장, 취팔선보]
+      figures: [홍칠공, 황용(전승)]
+      traits: 거지들의 연합. 전국 분타로 천하제일 정보망 운영.
+      history: |
+        창건자는 전설로 거슬러 올라가며, 강룡십팔장과 타구봉법이
+        진산절기. 분타가 전국에 깔려 있어 정보·지원에서 막강.
+        총타는 작품마다 변량(개봉)·낙양으로 갈림.
+    variants:
+      화산귀환:
+        figures: [풍영신개]
+        role: 강호의 거대 조직. 화산과 동맹.
+      군림천하:
+        figures: [나자행(용두방주), 인시망(오의단·쾌의당 간자), 모관(청의단원)]
+        role: 구파일방 외 최대 세력, 정보력 우월.
+        note: 진산월에 상당한 지원 제공. 인시망은 쾌의당 첩자.
+
+  # ═════════════════════════════════════════════════════════
+  # 정파 — 오대세가 (명칭은 "오대세가", 실제 풀 6개)
+  # ═════════════════════════════════════════════════════════
+  - id: nangung-clan
+    name_ko: 남궁세가
+    name_zh: 南宮世家
+    category: 세가
+    subcategory: 오대세가
+    base:
+      name: 안휘 합비
+      province: 안휘
+      coords: [31.86, 117.28]
+      coord_confidence: medium
+    notes: |
+      검(劍)의 명가. 제왕검형. 오대세가 고정 멤버.
+    common:
+      aliases: [무림세가 우두머리, 검의 명가]
+      martial_arts: [창궁대연신공, 제왕검형, 창궁무애검법, 천뢰무형검]
+      figures: [남궁 시조(전설)]
+      traits: 검의 명가. "창궁"·"천뢰" 모티프 무공.
+      history: |
+        안휘 천주산 본거(작품마다 황산·합비 변형). 무림세가의 우두머리로
+        무림맹주를 자주 배출. 검가와 기문진식 두뇌파로 이분화되며,
+        엘리트 이미지만큼이나 위선자·망나니로 묘사되는 경우도 잦음.
+    variants:
+      화산귀환:
+        figures: [남궁황(제왕검), 남궁도위(단악검)]
+        role: 오대세가 핵심. 제왕검 적세광과 호각.
+      북검전기:
+        figures: []
+        role: 정파 거두로 등장. 비중은 모용세가 대비 작음.
+      남궁세가 손녀딸의 귀환:
+        figures: [주인공(손녀딸)]
+        role: 작품 주역 가문.
+        note: 손녀딸이 회귀해 가문을 다시 일으키는 서사.
+
+  - id: tang-clan
+    name_ko: 사천당가
+    name_zh: 四川唐家
+    category: 세가
+    subcategory: 오대세가
+    base:
+      name: 사천 성도
+      province: 사천
+      coords: [30.67, 104.07]
+      coord_confidence: medium
+    notes: |
+      암기·독공의 절대 강자. 폐쇄적. 오대세가 고정 멤버.
+    common:
+      aliases: [암기와 독의 조종, 정사지간의 회색지대]
+      martial_arts: [만천화우, 무형지독, 천독수, 추혼탈백, 당문암기술]
+      figures: [당씨 시조(전설)]
+      traits: 암기와 독의 절대 강자. "은혜는 두 배, 원한은 열 배" 가풍.
+      history: |
+        사천 성도 외곽 당가타(唐家陀)에 위치한 당씨 집성촌. 폐쇄적이고
+        혈족 중심 의사결정. 정파지만 수단이 비열해 정사지간 회색지대로
+        평가되기도. 2010년대 이후 웹소설에선 주인공의 동맹 세력으로 자주 등장.
+    variants:
+      화산귀환:
+        figures: [당군악(독왕), 당소소, 당보]
+        role: 오대세가 중 최고 위상. 화산과의 옛 동맹 부활.
+      사천당가의 검신급 소가주가 되었다:
+        figures: [주인공(소가주)]
+        role: 작품 주역 가문.
+        note: 검신급 소가주가 된 주인공이 당가를 부활시키는 서사.
+
+  - id: peng-clan
+    name_ko: 하북팽가
+    name_zh: 河北彭家
+    category: 세가
+    subcategory: 오대세가
+    base:
+      name: 하북 창주
+      province: 하북
+      coords: [38.30, 116.84]
+      coord_confidence: medium
+    notes: |
+      도법(刀法) 명가. 오호단문도.
+    common:
+      aliases: [도법의 명가]
+      martial_arts: [오호단문도, 광풍쾌도, 팽가도법, 혼원벽력도]
+      figures: [팽씨 시조(전설)]
+      traits: 거대한 도(刀)를 다루는 거구의 가문. 신력과 도법.
+      history: |
+        하북 일대 본거. 체격이 크고 신력을 타고나는 무인들이 다수.
+        검 중심 가문(남궁·모용)과 대비되며, 오호단문도가 진산절기.
+    variants:
+      화산귀환:
+        figures: [팽엽(현 가주), 팽화서(전 가주·유폐), 팽철성]
+        role: 신중한 팽엽의 행보로 위상 상승.
+      하북팽가 막내아들:
+        figures: [팽지혁(주인공, 사공자)]
+        role: 작품 주역 가문.
+        note: |
+          전생의 도왕이 사공자로 환생. 전생 지식으로 소림 비급·환단을
+          발견해 정파에 전달하며 가문과 강호에서 입지를 다짐.
+      하북팽가 검술천재:
+        figures: [팽한빈]
+        role: 작품 주역 가문.
+        note: 토사구팽 당한 팽한빈이 20년 전으로 회귀해 검술천재로 부활.
+
+  - id: zhuge-clan
+    name_ko: 제갈세가
+    name_zh: 諸葛世家
+    category: 세가
+    subcategory: 오대세가
+    base:
+      name: 호북 양양
+      province: 호북
+      coords: [32.01, 112.12]
+      coord_confidence: medium
+    notes: |
+      지략·기관진식. 무력보다 책사 역할.
+    common:
+      aliases: [신산자(神算子), 지략의 가문]
+      martial_arts: [환영팔괘보, 기관진식, 제갈팔진, 둔갑술]
+      figures: [제갈량(전설)]
+      traits: 지략·기관진식 전문. 무학 자질은 평범하나 책사·참모로 명성.
+      history: |
+        제갈량의 후예 자처. 호북 양양 본거(작품마다 섬서로도 변형).
+        오대세가 준고정 멤버. 무력보다 두뇌로 무림에 영향력 행사.
+    variants:
+      화산귀환:
+        figures: [제갈자안(신산자)]
+        role: 정파 무림맹의 책략가. 화산을 책략으로 지원.
+
+  - id: murong-clan
+    name_ko: 모용세가
+    name_zh: 慕容世家
+    category: 세가
+    subcategory: 오대세가
+    base:
+      name: 요녕 심양
+      province: 요녕
+      coords: [41.80, 123.43]
+      coord_confidence: medium
+    notes: |
+      선비족 후예. 한국 신무협에선 요동, 옛 무협(천룡팔부)은 강남 고소.
+    common:
+      aliases: [강북의 명문대족]
+      martial_arts: [두전성이, 모용검법, 참합지]
+      figures: [모용룡성(두전성이 시조, 전설), 모용박, 모용복]
+      traits: 선비족 후예의 귀족 가문. 두전성이로 상대 무공을 되돌리는 절기.
+      history: |
+        오호십육국 연나라 후예. 천룡팔부에선 강남 고소 연자오, 한국
+        신무협에선 요녕(요동)으로 두는 변형. 연나라 부흥의 야심이 가풍.
+        한국 신무협에서 남궁세가를 제치고 최강 세가로 묘사되는 경우 다수.
+    variants:
+      화산귀환:
+        figures: [모용위경(가주)]
+        role: 정사대전에서 활약.
+      북검전기:
+        figures: []
+        role: 작품의 핵심 가문. 천하를 다스리기 위해 밀야를 결성,
+              구파일방·오대세가가 이에 대항해 북천문을 만듦.
+        note: 작품 전체 갈등의 축이 되는 가문.
+
+  - id: huangfu-clan
+    name_ko: 황보세가
+    name_zh: 皇甫世家
+    category: 세가
+    subcategory: 오대세가
+    base:
+      name: 산동 태산
+      province: 산동
+      coords: [36.27, 117.10]
+      coord_confidence: medium
+    notes: |
+      권법·신력의 명가. 산동 무림의 축.
+    common:
+      aliases: [산동의 거인, 권법 명가]
+      martial_arts: [황보권, 천왕팔권, 광혈권, 신력권]
+      figures: []
+      traits: 거구의 권법 명가. 산동 태산 일대의 호족.
+      history: |
+        산동 태산 부근 본거. 체구가 크고 신력을 타고나는 가풍.
+        권법·검법 위주로 무장. 오대세가 변동 멤버 중 하나로, 작품에
+        따라 제갈·모용 대신 들어가거나 6세가의 한 자리를 차지.
+    variants:
+      # 황보세가는 대부분 작품에서 비중 작음. 등장 시 추가 예정.
+
+  # ═════════════════════════════════════════════════════════
+  # 사파 — 신주오패 (神州五覇)
+  # ═════════════════════════════════════════════════════════
+  - id: maninbang
+    name_ko: 만인방
+    name_zh: 萬人房
+    category: 사파
+    subcategory: 신주오패
+    base:
+      name: 광동 광주
+      province: 광동
+      coords: [23.13, 113.26]
+      coord_confidence: medium
+    notes: |
+      남방 신흥 무력집단. 사파 최강.
+    common:
+      aliases: [신주오패의 신흥 강자]
+      martial_arts: [만인방 자체 무공(작품별 변형)]
+      figures: []
+      traits: 광동에서 일어난 신흥 사파 무력집단. 신주오패 중 가장 호전적.
+      history: |
+        한국 신무협에서 신주오패의 한 축으로 정착된 후발 강자.
+        광동 광주를 거점으로 정파에 가장 적극적으로 충돌하는 묘사.
+    variants:
+      화산귀환:
+        figures: [장일소]
+        role: 사패련 핵심. 신주오패의 정점급.
+        note: |
+          청성파 벽현자 살해 등 정파 공격의 선봉. 점창 진송원에게도
+          굴욕을 주는 등 정파 분노의 직접 원인.
+
+  - id: jangang-suro
+    name_ko: 장강수로십팔채
+    name_zh: 長江水路十八砦
+    category: 사파
+    subcategory: 신주오패
+    base:
+      name: 장강 동정호
+      province: 호북·호남
+      coords: [29.32, 112.95]
+      coord_confidence: medium
+    notes: |
+      장강 일대 수적 18채 연합.
+    common:
+      aliases: [장강의 패자, 수적의 본가]
+      martial_arts: [수상전, 수공, 어부무공, 도법]
+      figures: []
+      traits: 장강 일대 수적 18채(중국 원전 십이연환오) 연합. 수상전 전문.
+      history: |
+        장강 동정호를 본거로 한 수적 연합체. 한국 무협에선 18채로 정착.
+        산적 녹림과 더불어 흑도의 양축이지만 주인공과 마주칠 일이 적어
+        작품마다 비중은 들쑥날쑥함.
+    variants:
+      화산귀환:
+        figures: []
+        role: 신주오패 한 축. 사파 연합의 중요한 한 자리.
+      시한부 천재가 살아남는 법:
+        figures: []
+        role: 작품에 등장하는 사파 세력.
+
+  - id: nokrim
+    name_ko: 녹림칠십이채
+    name_zh: 綠林七十二砦
+    category: 사파
+    subcategory: 신주오패
+    base:
+      name: 호북 녹림산
+      province: 호북
+      coords: [31.69, 112.97]
+      coord_confidence: medium
+    notes: |
+      산적 72채 연합. 녹림 = 산적의 통칭.
+    common:
+      aliases: [산적의 본가, 녹림 72채]
+      martial_arts: [산악전, 산채도법, 녹림권법]
+      figures: [녹림 총표파자(통칭)]
+      traits: 호북 녹림산을 어원으로 한 산적 72채 연합. 흑도지만 의(義)를 중시.
+      history: |
+        한나라 시대 농민봉기 "녹림병"에서 유래. 한국 무협에선 산적의 통칭.
+        72채라는 숫자는 한국 신무협에서 굳어진 표현.
+    variants:
+      화산귀환:
+        figures: []
+        role: 신주오패 한 축이었으나 화산 주도 천우맹에 합류.
+        note: 정파와 의외의 동맹을 이룸. 한국 신무협 특유의 정/사 경계 흐림.
+
+  - id: haomun
+    name_ko: 하오문
+    name_zh: 下五門
+    category: 사파
+    subcategory: 신주오패
+    base:
+      name: 항주
+      province: 절강
+      coords: [30.27, 120.16]
+      coord_confidence: medium
+    notes: |
+      정보·하층민 조직. 사파지만 전국 정보망.
+    common:
+      aliases: [천하 정보의 점조직]
+      martial_arts: []
+      figures: []
+      traits: 도둑·소매치기·도박사·기녀·마부·점소이 등 하층민 연합. 무공은 약하나 정보망이 강점.
+      history: |
+        본래 "下五門"이었으나 한국 무협에선 "더러울 오(汚)"로 변형되어
+        창기·노름꾼까지 포함. 점조직이라 중심 본거지 불명, 작품마다
+        총타 위치 다름(항주·낙양 등).
+    variants:
+      화산귀환:
+        figures: [담여해(하오문주)]
+        role: 신주오패 중 가장 광역의 정보망.
+      광마회귀:
+        figures: [주인공(개문조사)]
+        role: 작품 주역 조직.
+        note: 광마 출신 주인공이 직접 창건한 새 하오문. 사파지만 의(義)의 조직.
+
+  - id: heukgwibo
+    name_ko: 흑귀보
+    name_zh: 黑鬼堡
+    category: 사파
+    subcategory: 신주오패
+    base:
+      name: 항주
+      province: 절강
+      coords: [30.30, 120.18]
+      coord_confidence: medium
+    notes: |
+      소금 밀거래 조직. 항주 거점.
+    common:
+      aliases: [소금 밀거래의 본가]
+      martial_arts: [흑귀보 자체 무공(작품별 변형)]
+      figures: []
+      traits: 사파 중 경제력 기반. 소금 밀거래·암시장으로 운영.
+      history: |
+        한국 신무협 신주오패의 한 축. 항주 본거.
+        직접 전투력보다 자금력·물류망으로 영향력 행사.
+    variants:
+      화산귀환:
+        figures: []
+        role: 신주오패의 한 축. 사패련 자금줄 역할.
+
+  # ═════════════════════════════════════════════════════════
+  # 새외 — 7궁
+  # ═════════════════════════════════════════════════════════
+  - id: bukhae-binggung
+    name_ko: 북해빙궁
+    name_zh: 北海氷宮
+    category: 세외
+    subcategory: 새외
+    base:
+      name: 포르 바진 유적
+      province: 러시아 투바·몽골 국경
+      coords: [50.61, 97.38]
+      coord_confidence: low
+    notes: |
+      북해 빙공 문파. 만년한철·빙정. 위치는 위구르 제국 유적이 통설.
+    common:
+      aliases: [북해의 빙공 종주]
+      martial_arts: [빙백신장, 한빙공, 빙공, 만년한철 다루기]
+      figures: [빙씨 가문(북해빙궁주)]
+      traits: 냉기 계통 무공. 추위에 강하나 열기에 약함. 빙정으로 내공 증진.
+      history: |
+        북해(시베리아·바이칼) 일대 본거. 포르 바진 유적이 가장 유력한 모델.
+        새외무림 중 등장 빈도 최상위. 빙씨 성씨가 약 70%, 청·은색 머리의
+        쿨데레 미녀 히로인 클리셰가 굳어짐(2000년대), 2010년대 이후엔 빙정
+        사건 해결 구도로 변화.
+    variants:
+      화산귀환:
+        figures: []
+        role: 새외오궁 한 축. 화산 주도 천우맹의 핵심 구성원.
+
+  - id: namman-yasugung
+    name_ko: 남만야수궁
+    name_zh: 南蠻野獸宮
+    category: 세외
+    subcategory: 새외
+    base:
+      name: 운남 동남부
+      province: 운남
+      coords: [24.50, 101.50]
+      coord_confidence: medium
+    notes: |
+      맹수를 부리는 남만의 야성 집단.
+    common:
+      aliases: [야수의 궁, 남만의 패자]
+      martial_arts: [야수 부리기, 야성권법, 독공]
+      figures: []
+      traits: 운남 동남부의 야성 집단. 맹수를 부리며 척박한 환경에서 군림.
+      history: |
+        남만(베트남·동남아) 일대. 한국 신무협에서 새외오궁의
+        한 자리로 정착. 오독문·독곡 등 남만 무문들의 합류 형태로 묘사되기도.
+    variants:
+      화산귀환:
+        figures: []
+        role: 새외오궁 한 축. 천우맹 합류.
+        note: 척박한 지역, 맹수를 부리는 묘사.
+
+  - id: podalrap-gung
+    name_ko: 포달랍궁
+    name_zh: 布達拉宮
+    category: 세외
+    subcategory: 새외
+    base:
+      name: 라싸 포탈라궁
+      province: 서장(티베트)
+      coords: [29.6541, 91.1172]
+      coord_confidence: high
+    notes: |
+      서장 라마승 무공. 대수인·용상반야공.
+    common:
+      aliases: [서장의 라마 무파, 티베트 불교 본산]
+      martial_arts: [대수인, 용상반야공, 보리무상신공, 청수경, 진언팔식]
+      figures: [달라이 라마, 판첸 라마, 법왕(法王)]
+      traits: 서장 라마승 집단. 라마승들이 중원 고수와 대등한 무력 보유.
+      history: |
+        라싸 포탈라궁 본거. 종교·국가·무림이 일체화된 대규모 불교 문파.
+        2000년대 이전엔 중원을 노리는 악역, 2010년대 이후엔 초월자적
+        존재로 변화. 김용 신조협려·천룡팔부의 영향이 강함.
+    variants:
+      화산귀환:
+        figures: []
+        role: 새외오궁 한 축. 천우맹 합류.
+
+  - id: marahyeol-gung
+    name_ko: 마라혈궁
+    name_zh: 摩羅血宮
+    category: 세외
+    subcategory: 새외
+    base:
+      name: 청해
+      province: 청해
+      coords: [36.00, 98.00]
+      coord_confidence: low
+    notes: |
+      은밀한 혈공 집단. 위치·정체 모호 (외부에 공개 안 됨).
+    common:
+      aliases: [혈교의 또 다른 이름, 베일에 가린 궁]
+      martial_arts: [혈공, 흡혈공, 마라공]
+      figures: []
+      traits: 청해 어딘가에 자리한 비밀 혈공 집단. 정체와 위치 모두 베일.
+      history: |
+        한국 신무협 새외오궁의 한 자리. 위치·정체가 모호해
+        작품에 따라 새외사궁(마라혈궁 제외)이라 부르는 경우도 있음.
+        혈교의 변형으로 해석되기도.
+    variants:
+      화산귀환:
+        figures: []
+        role: 새외오궁 중 가장 신비. 외부에 거의 공개되지 않음.
+
+  - id: namhae-taeyang
+    name_ko: 남해태양궁
+    name_zh: 南海太陽宮
+    category: 세외
+    subcategory: 새외
+    base:
+      name: 베트남 중부 (린읍)
+      province: 안남
+      coords: [17.00, 107.00]
+      coord_confidence: low
+    notes: |
+      남해 왕족 집단. 태양 모티프 무공.
+    common:
+      aliases: [남해의 왕족 궁, 태양의 궁]
+      martial_arts: [태양 모티프 무공, 화공]
+      figures: []
+      traits: 안남(베트남 중부) 왕족 집단. 태양 신앙 기반의 화공 계열.
+      history: |
+        한국 신무협 새외오궁의 한 자리. 베트남 린읍 본거.
+        새외 풀 중에선 등장 빈도가 비교적 낮은 편.
+    variants:
+      화산귀환:
+        figures: []
+        role: 새외오궁 한 축. 천우맹 합류.
+
+  - id: gwangpung-sa
+    name_ko: 광풍사
+    name_zh: 狂風寺
+    category: 세외
+    subcategory: 새외
+    base:
+      name: 타클라마칸 사막
+      province: 대막(고비·서역)
+      coords: [40.00, 95.00]
+      coord_confidence: low
+    notes: |
+      사막의 무장 사찰. 모래폭풍 무공.
+    common:
+      aliases: [모래폭풍의 사찰, 대막의 패자]
+      martial_arts: [광풍권, 모래폭풍 무공, 사막 토법]
+      figures: []
+      traits: 대막(고비·타클라마칸) 사막의 무장 사찰. 모래폭풍을 무공에 활용.
+      history: |
+        한국 무협의 대막 권역 대표 세력. 새외무림 풀의 한 자리.
+        새외오궁 풀에는 들어가지 않지만 새외무림 전반에서 자주 등장.
+    variants:
+      # 광풍사는 화산귀환에 미등장. 다른 작품의 새외 묘사에서 등장.
+
+  - id: daeroeum-sa
+    name_ko: 대뢰음사
+    name_zh: 大雷音寺
+    category: 세외
+    subcategory: 새외
+    base:
+      name: 부다가야 인근
+      province: 천축(인도)
+      coords: [24.70, 85.00]
+      coord_confidence: medium
+    notes: |
+      인도 불교 사찰. 천축 무공의 본거.
+    common:
+      aliases: [천축 불교의 본산]
+      martial_arts: [대뢰음 진언, 천축무공, 항마진공]
+      figures: []
+      traits: 인도 불교 사찰. 천축 무공의 본거.
+      history: |
+        서유기에서 유래한 명칭. 한국 무협에선 천축 권역의 대표 세력.
+        소뢰음사와 짝을 이루기도. 새외무림 일반 풀로 자주 등장.
+    variants:
+      # 대뢰음사도 화산귀환에 미등장. 일반 무협의 새외 묘사에서 등장.
+
+  # ═════════════════════════════════════════════════════════
+  # 마교 — 천마신교
+  # ═════════════════════════════════════════════════════════
+  - id: cheonma-singyo
+    name_ko: 천마신교
+    name_zh: 天魔神敎
+    category: 마교
+    subcategory: null
+    base:
+      name: 십만대산 (신강 천산)
+      province: 신강
+      coords: [42.00, 85.00]
+      coord_confidence: low
+    notes: |
+      마교. 천마를 섬기는 강자존 집단.
+      명칭 "십만대산"은 한국 무협 다수의 관습대로 신강 천산을 가리킴.
+      화산귀환·나노마신은 광서·광동 산맥 [22°N, 107°E]으로 두는 변형 있음.
+    common:
+      aliases: [천마신교, 마교(정파의 멸칭), 명교, 일월신교]
+      martial_arts: [천마신공, 마공, 흡성대법, 마도무공]
+      figures: [천마(代代의 신앙 대상)]
+      traits: 천마를 섬기는 강자존 무투집단. 중원 정파의 영원한 적이자 회귀물의 단골 주역 진영.
+      history: |
+        페르시아 마니교(明敎)에서 유래한 역사적 기원이 한국 신무협에선
+        "천마 신앙 + 강자존 무투파"로 굳어짐. 본거지·직제·정체성이
+        작품마다 가장 크게 달라지는 세력.
+    variants:
+      화산귀환:
+        location_variant: 광서·광동 십만대산 [22°N, 107°E]
+        internal_structure: 작품 내 마교 내부 디테일 적음
+        figures: []
+        role: 사패련과 별개의 외곽 빌런.
+        note: 메인 빌런은 사파(사패련)이고, 마교는 작품 후반·외전에서 다루어짐.
+
+      나노마신:
+        location_variant: 황하 이남 광서·광동 십만대산 [22°N, 107°E]
+        internal_structure: |
+          천마 / 대호법·좌호법·우호법(3호법) / 12장로 /
+          6대종파(현마·검마·복마·독마·도마·음마) / 마도관(군사훈련기관)
+        figures: [천여운(주인공), 천마, 대호법, 좌호법, 우호법]
+        role: 작품 주역 진영.
+        note: |
+          한국 신무협에서 마교 내부 디테일이 가장 풍부한 작품.
+          신강 배화교를 역사적 기원으로 명시하되 본거지는 십만대산.
+          천마령(천마의 명령)이 교주령보다 상위.
+
+      광마회귀:
+        location_variant: 옛 총본산 (작품 내 불명확)
+        internal_structure: |
+          천마(천마신공 수련자) / 광명좌사·광명우사(실권 최고) /
+          대공(일·이·삼) / 호법·장로 / 사천왕(청·적·백·흑)
+        figures: [천마, 광명좌사(검마), 광명우사, 대공들, 사천왕]
+        role: 주역 출신 진영.
+        note: 주인공이 마교 광명좌사(검마) 출신으로 진정한 마도에 의문을 품고 교를 나옴. 중앙집권적 구조.
+
+      망나니 소교주로 환생했다:
+        location_variant: 서북 신강 천산 7봉우리 [42°N, 85°E]
+        internal_structure: |
+          광명궁(교주 거주) / 소명궁(소교주 거주) /
+          칠대비궁(혈무·검단·살·환희·성화·상재·독괴) / 장로회
+        figures: [교주, 소교주(주인공), 칠대비궁주]
+        role: 주역 진영 (주인공 = 소교주).
+        note: |
+          신강 천산 7봉우리에 일·월·화·수·목·금·토로 명명.
+          "명교"라 부르며 수십만 신도 보유. 완전 수직구조 — 교주의 명은 황명보다 절대적.
+
+      신마경천기:
+        location_variant: 본거지 작품 내 명확히 정리 안 됨
+        internal_structure: (디테일 적음)
+        figures: [혁운성(주인공)]
+        role: 정파에 배신당한 주인공의 성장 무대.
+        note: 마교에서 성장해 정파 위선자들에 맞서 복수.
+
+      시한부 천재가 살아남는 법:
+        location_variant: 입황성 (마교+사파 통합 거대 세력)
+        internal_structure: 입황성 자체가 마교/사파 통합 형태로 묘사
+        figures: []
+        role: 정파 무림에 대비되는 거대 적대 세력.
+        note: 전형적 "천마신교" 형태가 아닌 입황성이라는 통합 빌런 조직.
+
+  # ═════════════════════════════════════════════════════════
+  # 황실 / 관 — 마커만 유지 (디테일 없음)
+  # ═════════════════════════════════════════════════════════
+  - id: hwanggung
+    name_ko: 황궁
+    name_zh: 皇宮
+    category: 관
+    subcategory: 황실
+    base:
+      name: 북경 자금성
+      province: 북경
+      coords: [39.9163, 116.3972]
+      coord_confidence: high
+    notes: |
+      황제 거주. 황실 무력의 정점.
+
+  - id: geumuiwi
+    name_ko: 금의위
+    name_zh: 錦衣衛
+    category: 관
+    subcategory: 황실
+    base:
+      name: 북경 자금성
+      province: 북경
+      coords: [39.9180, 116.3990]
+      coord_confidence: high
+    notes: |
+      황제 친위·정보 기관.
+
+  - id: dongchang
+    name_ko: 동창
+    name_zh: 東廠
+    category: 관
+    subcategory: 황실
+    base:
+      name: 북경 자금성
+      province: 북경
+      coords: [39.9145, 116.3955]
+      coord_confidence: high
+    notes: |
+      환관 비밀경찰. 금의위와 자주 충돌·협력.
+
+  # ═════════════════════════════════════════════════════════
+  # 기타 — 연합 — 마커만 유지 (디테일 없음)
+  # ═════════════════════════════════════════════════════════
+  - id: murim-maeng
+    name_ko: 무림맹
+    name_zh: 武林盟
+    category: 기타
+    subcategory: 연합
+    base:
+      name: 정주 (또는 낙양)
+      province: 하남
+      coords: [34.7466, 113.6253]
+      coord_confidence: low
+    notes: |
+      정파 연합 본부. 위치는 작품마다 정주·낙양 등 중원 중심지.

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>武林地圖 · 한국 신무협 세력 지도</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside id="sidebar">
+        <button class="sheet-handle" aria-label="패널 토글"></button>
+        <header>
+          <h1>武林地圖</h1>
+          <p class="subtitle">한국 신무협 세력 지도</p>
+        </header>
+        <section id="filters">
+          <h2>카테고리</h2>
+          <div id="filter-list"></div>
+        </section>
+        <section id="info">
+          <div id="info-content">
+            <p class="hint">지도 위 마커를 클릭하세요.</p>
+          </div>
+        </section>
+        <footer>
+          <p>총 <span id="count">0</span>개 세력</p>
+          <button id="report-btn" class="report-btn">정보 제보·수정 요청</button>
+        </footer>
+      </aside>
+      <div id="map"></div>
+
+      <!-- 모바일 전용 상단 투명 툴바 -->
+      <div id="mobile-toolbar">
+        <div class="mobile-toolbar-header">
+          <h1>武林地圖</h1>
+          <p class="subtitle">한국 신무협 세력 지도</p>
+        </div>
+        <div id="mobile-filter-list" class="mobile-filter-list"></div>
+      </div>
+
+      <!-- 모바일 전용 정보 제보 FAB -->
+      <button id="report-fab" class="report-fab" aria-label="정보 제보·수정 요청">✎</button>
+    </div>
+
+    <!-- 제보 모달 -->
+    <div id="report-modal" class="modal-overlay" hidden>
+      <div class="modal">
+        <header class="modal-header">
+          <h2>정보 제보 · 수정 요청</h2>
+          <button id="report-close" class="modal-close" aria-label="닫기">✕</button>
+        </header>
+        <form id="report-form" class="modal-form">
+          <div class="form-row">
+            <label class="form-label">요청 유형</label>
+            <div class="form-radios">
+              <label><input type="radio" name="type" value="수정" checked /> 정보 수정</label>
+              <label><input type="radio" name="type" value="신규 세력" /> 새 세력 추가</label>
+              <label><input type="radio" name="type" value="신규 작품" /> 새 작품 추가</label>
+              <label><input type="radio" name="type" value="일반 피드백" /> 일반 피드백</label>
+            </div>
+          </div>
+
+          <div class="form-row" id="field-target" data-show-on="수정">
+            <label class="form-label" for="target">대상 세력</label>
+            <select id="target" name="target">
+              <option value="">— 선택 —</option>
+            </select>
+          </div>
+
+          <div class="form-row" id="field-work" data-show-on="신규 작품">
+            <label class="form-label" for="work-name">작품명</label>
+            <input id="work-name" name="work-name" type="text" placeholder="예: 무당기협" />
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="content">내용 *</label>
+            <textarea id="content" name="content" required rows="6"
+              placeholder="구체적으로 적어주세요. 예: 화산귀환의 소림사 장문인은 법정이 아니라..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="source">출처 (선택)</label>
+            <input id="source" name="source" type="text"
+              placeholder="예: 나무위키 화산귀환/등장인물, 작품 N화" />
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="contact">이메일 (선택)</label>
+            <input id="contact" name="contact" type="email" placeholder="답변 받을 이메일 (선택)" />
+          </div>
+
+          <div class="form-actions">
+            <div class="form-buttons">
+              <button type="button" id="report-cancel" class="btn-secondary">취소</button>
+              <button type="submit" class="btn-primary">제출</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

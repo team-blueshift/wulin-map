@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>武林地圖 · 베이스 비교</title>
+    <link rel="stylesheet" href="/src/compare.css" />
+  </head>
+  <body>
+    <header id="compare-header">
+      <h1>베이스 비교</h1>
+      <div class="toggles">
+        <label><input type="checkbox" id="sepia-toggle" checked /> sepia</label>
+        <label><input type="checkbox" id="hillshade-toggle" /> hillshade</label>
+        <label><input type="checkbox" id="markers-toggle" /> 마커</label>
+      </div>
+      <a href="/" class="back-link">← 메인으로</a>
+    </header>
+    <div id="compare-grid"></div>
+    <script type="module" src="/src/compare.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,600 @@
+# 무협 세력 데이터 — 명대(明代, 14~17세기) 기준 MVP 30개
+#
+# 좌표계: WGS84 [위도, 경도]
+# coord_confidence:
+#   high   = 실존 지명, 좌표 명확 (예: 숭산, 라싸)
+#   medium = 실존 지명이나 본거지 정확한 위치 추정
+#   low    = 가공의 장소, 작품마다 위치 해석 다름
+
+factions:
+  # ─────────────────────────────────────────────────────────
+  # 정파 — 구파일방 (九派一幫)
+  # ─────────────────────────────────────────────────────────
+  - id: shaolin
+    name_ko: 소림사
+    name_zh: 少林寺
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 산
+      name: 숭산
+      province: 하남
+      coords: [34.5103, 112.9362]
+      coord_confidence: high
+    martial_style: [권법, 곤법, 내공, 외공]
+    representative_figures: [달마, 공견신승, 공문방장, 도제, 방증대사]
+    appears_in: [천룡팔부, 의천도룡기, 소오강호, 녹정기]
+    notes: |
+      중원 무림의 태산북두(泰山北斗). 정파의 정신적 중심.
+      72절기와 역근경·세수경으로 대표되는 외가무공의 본산.
+    sources: [김용 소설 공통 설정]
+
+  - id: wudang
+    name_ko: 무당파
+    name_zh: 武當派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 산
+      name: 무당산
+      province: 호북
+      coords: [32.4019, 111.0042]
+      coord_confidence: high
+    martial_style: [검법, 내공, 도가무공, 태극]
+    representative_figures: [장삼풍, 무당칠협, 송원교, 유연주]
+    appears_in: [의천도룡기, 소오강호]
+    notes: |
+      장삼풍이 개창한 도가 무파. 소림과 더불어 정파의 양대 산맥.
+      태극권·태극검·양의검법 등 유(柔)의 무공으로 유명.
+    sources: [의천도룡기]
+
+  - id: huashan
+    name_ko: 화산파
+    name_zh: 華山派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 산
+      name: 화산
+      province: 섬서
+      coords: [34.4836, 110.0867]
+      coord_confidence: high
+    martial_style: [검법]
+    representative_figures: [악불군, 영호충, 풍청양, 영영]
+    appears_in: [소오강호, 의천도룡기, 사조영웅전]
+    notes: |
+      검종(劍宗)과 기종(氣宗)의 내분으로 유명.
+      독고구검·자하신공의 본산. 오악검파 맹주(소오강호 기준).
+    sources: [소오강호]
+
+  - id: emei
+    name_ko: 아미파
+    name_zh: 峨嵋派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 산
+      name: 아미산
+      province: 사천
+      coords: [29.5201, 103.3315]
+      coord_confidence: high
+    martial_style: [검법, 내공]
+    representative_figures: [곽양, 멸절사태, 주지약, 기효부]
+    appears_in: [의천도룡기, 녹정기]
+    notes: |
+      곽양(곽정의 차녀)이 개창한 여성 중심 문파.
+      구양신공의 일부를 잇고, 의천검을 보유.
+    sources: [의천도룡기]
+
+  - id: kunlun
+    name_ko: 곤륜파
+    name_zh: 崑崙派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 산
+      name: 곤륜산
+      province: 청해
+      coords: [35.6000, 94.0000]
+      coord_confidence: medium
+    martial_style: [검법, 장법]
+    representative_figures: [하태충, 반숙한, 백원자]
+    appears_in: [의천도룡기, 소오강호]
+    notes: |
+      서역의 정파. 중원에서 가장 먼 문파 중 하나.
+      양의검법·정양침으로 유명. 곤륜산맥 옥허궁 일대로 묘사.
+    sources: [의천도룡기]
+
+  - id: dianchang
+    name_ko: 점창파
+    name_zh: 點蒼派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 산
+      name: 점창산(창산)
+      province: 운남
+      coords: [25.8600, 100.0833]
+      coord_confidence: high
+    martial_style: [검법]
+    representative_figures: [목인청, 사필금]
+    appears_in: [녹정기, 천룡팔부]
+    notes: |
+      운남 대리국 시절부터 이어진 검파. 회풍불류 검법으로 유명.
+      후대로 가며 쇠퇴한 것으로 묘사되는 경우가 많음.
+    sources: [천룡팔부, 녹정기]
+
+  - id: qingcheng
+    name_ko: 청성파
+    name_zh: 青城派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 산
+      name: 청성산
+      province: 사천
+      coords: [30.9230, 103.5040]
+      coord_confidence: high
+    martial_style: [검법, 도가무공]
+    representative_figures: [여창해, 후인영]
+    appears_in: [소오강호, 녹정기]
+    notes: |
+      도교 발상지 중 하나인 청성산의 검파.
+      사천당가·아미파와 더불어 사천 무림의 한 축.
+    sources: [소오강호]
+
+  - id: zhongnan
+    name_ko: 종남파
+    name_zh: 終南派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 산
+      name: 종남산
+      province: 섬서
+      coords: [33.9200, 108.8300]
+      coord_confidence: high
+    martial_style: [검법, 도가무공]
+    representative_figures: [왕중양, 전진칠자(구처기 등)]
+    appears_in: [사조영웅전, 신조협려, 의천도룡기]
+    notes: |
+      전진교(全眞敎) 본거지. 송말~원초 전성기.
+      왕중양과 전진칠자, 중양궁(重陽宮)이 위치.
+    sources: [사조영웅전]
+
+  - id: kongtong
+    name_ko: 공동파
+    name_zh: 崆峒派
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 산
+      name: 공동산
+      province: 감숙
+      coords: [35.5500, 106.5900]
+      coord_confidence: high
+    martial_style: [권법, 칠상권]
+    representative_figures: [당문량, 종유협, 상경지]
+    appears_in: [의천도룡기, 녹정기]
+    notes: |
+      칠상권(七傷拳)의 본산. 서북 지역 정파.
+      구파일방 중 비교적 격이 낮게 묘사되는 경우가 많음.
+    sources: [의천도룡기]
+
+  - id: gaibang
+    name_ko: 개방
+    name_zh: 丐幫
+    category: 정파
+    subcategory: 구파일방
+    base:
+      type: 도시
+      name: 변량(개봉) 총타
+      province: 하남
+      coords: [34.7972, 114.3076]
+      coord_confidence: medium
+    martial_style: [장법, 봉법, 강룡십팔장, 타구봉법]
+    representative_figures: [홍칠공, 황용, 교봉, 송원교]
+    appears_in: [사조영웅전, 신조협려, 천룡팔부, 의천도룡기]
+    notes: |
+      천하제일대방. 거지들의 연합체로 전국에 분타 운영.
+      강룡십팔장과 타구봉법이 진산절기.
+      총타 위치는 작품마다 다르지만 변량(개봉)·낙양이 대표적.
+    sources: [김용 소설 공통]
+
+  # ─────────────────────────────────────────────────────────
+  # 5대 세가 (五大世家)
+  # ─────────────────────────────────────────────────────────
+  - id: nangong-clan
+    name_ko: 남궁세가
+    name_zh: 南宮世家
+    category: 세가
+    subcategory: 5대세가
+    base:
+      type: 도시
+      name: 안휘 합비
+      province: 안휘
+      coords: [31.8612, 117.2830]
+      coord_confidence: medium
+    martial_style: [검법, 검기]
+    representative_figures: [남궁세가 가주]
+    appears_in: [무협 일반 설정]
+    notes: |
+      검(劍)으로 유명한 명문 세가. 강남 무림의 대표.
+      김용보다는 후대 무협 소설에서 비중 큼.
+    sources: [무협 일반]
+
+  - id: tang-clan
+    name_ko: 사천당가
+    name_zh: 四川唐家
+    category: 세가
+    subcategory: 5대세가
+    base:
+      type: 도시
+      name: 사천 성도
+      province: 사천
+      coords: [30.6595, 104.0657]
+      coord_confidence: medium
+    martial_style: [암기, 독공]
+    representative_figures: [당문 가주, 당불출]
+    appears_in: [의천도룡기, 녹정기, 다수 무협소설]
+    notes: |
+      암기와 독으로 천하제일. 정파지만 정·사 어느 쪽과도 거리를 둠.
+      당문 비전은 외부 유출을 극도로 경계.
+    sources: [무협 공통]
+
+  - id: peng-clan
+    name_ko: 하북팽가
+    name_zh: 河北彭家
+    category: 세가
+    subcategory: 5대세가
+    base:
+      type: 도시
+      name: 하북 창주
+      province: 하북
+      coords: [38.3037, 116.8388]
+      coord_confidence: medium
+    martial_style: [도법, 오호단문도]
+    representative_figures: [팽련호, 팽소제]
+    appears_in: [사조영웅전, 의천도룡기, 설산비호]
+    notes: |
+      도(刀)의 명가. 오호단문도(五虎斷門刀)가 진산절기.
+      산동·하북 일대 호족 가문 중 으뜸.
+    sources: [김용 소설]
+
+  - id: huangfu-clan
+    name_ko: 황보세가
+    name_zh: 皇甫世家
+    category: 세가
+    subcategory: 5대세가
+    base:
+      type: 도시
+      name: 산동 제남
+      province: 산동
+      coords: [36.6512, 117.1201]
+      coord_confidence: medium
+    martial_style: [권법, 장법]
+    representative_figures: [황보 가주]
+    appears_in: [무협 일반 설정]
+    notes: |
+      산동 일대의 외공·권술 명가. 5대 세가에 자주 거론되나
+      비중은 작가마다 다름.
+    sources: [무협 일반]
+
+  - id: murong-clan
+    name_ko: 모용세가
+    name_zh: 慕容世家
+    category: 세가
+    subcategory: 5대세가
+    base:
+      type: 도시
+      name: 강남 고소(소주) — 연자오
+      province: 강소
+      coords: [31.2989, 120.5853]
+      coord_confidence: medium
+    martial_style: [두환술, 이피지도환피지신(以彼之道還彼之身)]
+    representative_figures: [모용박, 모용복, 왕어언]
+    appears_in: [천룡팔부]
+    notes: |
+      선비족 모용 후예. 연(燕)나라 부흥을 꿈꾸는 가문.
+      "남모용 북교봉(南慕容北喬峯)"으로 천하에 이름.
+      본거지는 강남 고소의 연자오(燕子塢).
+    sources: [천룡팔부]
+
+  # ─────────────────────────────────────────────────────────
+  # 마교 / 사파 (魔敎·邪派)
+  # ─────────────────────────────────────────────────────────
+  - id: mingjiao
+    name_ko: 일월신교(명교)
+    name_zh: 明敎 / 日月神敎
+    category: 마교
+    subcategory: null
+    base:
+      type: 산
+      name: 광명정 (곤륜산맥)
+      province: 신강
+      coords: [38.0000, 76.0000]
+      coord_confidence: low
+    martial_style: [건곤대나이, 성화령신공, 내공]
+    representative_figures: [장무기, 양정천, 임아행, 동방불패]
+    appears_in: [의천도룡기, 소오강호]
+    notes: |
+      페르시아 마니교에서 유래. 정파에게 마교로 핍박받음.
+      광명정(光明頂)이 본거지. 의천도룡기 명교 = 소오강호 일월신교
+      의 전신/후신 관계로 해석되기도 함.
+    sources: [의천도룡기, 소오강호]
+
+  - id: chunmasingyo
+    name_ko: 천마신교
+    name_zh: 天魔神敎
+    category: 마교
+    subcategory: null
+    base:
+      type: 비밀지
+      name: 흑목애(黑木崖)
+      province: 운남 북부/사천 남부 (추정)
+      coords: [28.0000, 103.0000]
+      coord_confidence: low
+    martial_style: [흡성대법, 규화보전, 마공]
+    representative_figures: [임아행, 동방불패, 향문천]
+    appears_in: [소오강호]
+    notes: |
+      흑목애 본거지. 일월신교의 후기 형태 또는 별개 마교로
+      그려짐. 동방불패의 규화보전이 상징.
+    sources: [소오강호]
+
+  - id: blood-sect
+    name_ko: 혈교
+    name_zh: 血敎
+    category: 사파
+    subcategory: null
+    base:
+      type: 비밀지
+      name: 운남 대리 인근 혈도(血島)
+      province: 운남
+      coords: [25.6000, 100.2400]
+      coord_confidence: low
+    martial_style: [흡혈공, 사공, 독공]
+    representative_figures: [혈교 교주(작품별 상이)]
+    appears_in: [무협 일반 설정]
+    notes: |
+      흡혈·인신공양 등 잔혹한 사공으로 묘사되는 사파.
+      김용 정전에는 없고 후대 신무협에서 단골 악역.
+    sources: [무협 일반]
+
+  - id: white-lotus
+    name_ko: 백련교
+    name_zh: 白蓮敎
+    category: 사파
+    subcategory: null
+    base:
+      type: 도시
+      name: 산동 거야
+      province: 산동
+      coords: [35.3960, 116.5950]
+      coord_confidence: medium
+    martial_style: [사공, 부주술, 집단무공]
+    representative_figures: [한산동, 유복통]
+    appears_in: [의천도룡기, 녹정기]
+    notes: |
+      실존한 명대 비밀결사·종교집단. 명교의 후신으로 묘사되기도.
+      홍건적 봉기의 모태이자, 명·청대 반란의 단골 세력.
+    sources: [의천도룡기, 사료]
+
+  # ─────────────────────────────────────────────────────────
+  # 흑도 (黑道)
+  # ─────────────────────────────────────────────────────────
+  - id: yangtze-pirates
+    name_ko: 장강수로채
+    name_zh: 長江水路寨
+    category: 흑도
+    subcategory: null
+    base:
+      type: 강
+      name: 동정호·형주 일대 장강
+      province: 호북
+      coords: [29.5000, 112.5000]
+      coord_confidence: medium
+    martial_style: [수상전, 어부무공, 군진]
+    representative_figures: [수로채 총채주]
+    appears_in: [녹정기, 무협 일반]
+    notes: |
+      장강 유역 수적(水賊) 연합. 18채 또는 12채로 구성된다는 설정.
+      사파지만 의(義)를 중시해 흑도 중에선 격이 높음.
+    sources: [무협 일반]
+
+  - id: yellow-river-pirates
+    name_ko: 황하수로채
+    name_zh: 黃河水路寨
+    category: 흑도
+    subcategory: null
+    base:
+      type: 강
+      name: 황하 중류 (정주 일대)
+      province: 하남
+      coords: [34.7466, 113.6253]
+      coord_confidence: medium
+    martial_style: [수상전, 도법]
+    representative_figures: [황하수로채 채주]
+    appears_in: [무협 일반]
+    notes: |
+      황하 일대 수적 연합. 장강수로채와 종종 라이벌 관계.
+    sources: [무협 일반]
+
+  - id: lulin
+    name_ko: 녹림 (녹림맹)
+    name_zh: 綠林盟
+    category: 흑도
+    subcategory: null
+    base:
+      type: 산
+      name: 녹림산
+      province: 호북
+      coords: [31.6900, 112.9700]
+      coord_confidence: medium
+    martial_style: [도법, 산악전, 산채무공]
+    representative_figures: [녹림 총표파자]
+    appears_in: [무협 일반]
+    notes: |
+      산적 연합의 통칭이자 그 본가. 호북 녹림산이 어원.
+      "녹림 18채 72산채" 같은 표현으로 자주 등장.
+    sources: [무협 일반]
+
+  # ─────────────────────────────────────────────────────────
+  # 세외세력 (塞外勢力)
+  # ─────────────────────────────────────────────────────────
+  - id: tibet-tantric
+    name_ko: 서장 밀종
+    name_zh: 西藏密宗
+    category: 세외
+    subcategory: null
+    base:
+      type: 도시
+      name: 라싸 포탈라궁
+      province: 서장(티베트)
+      coords: [29.6541, 91.1172]
+      coord_confidence: high
+    martial_style: [라마무공, 대수인, 용상반야공]
+    representative_figures: [구마지, 금륜법왕, 상결]
+    appears_in: [천룡팔부, 신조협려, 녹정기]
+    notes: |
+      티베트 밀교 라마승들. 중원 무림과 빈번히 충돌.
+      금륜법왕(신조협려), 구마지(천룡팔부)가 대표적.
+    sources: [김용 소설 공통]
+
+  - id: miaojiang
+    name_ko: 묘강
+    name_zh: 苗疆
+    category: 세외
+    subcategory: null
+    base:
+      type: 비밀지
+      name: 묘족 영역 (운귀고원)
+      province: 운남·귀주
+      coords: [26.5800, 107.9800]
+      coord_confidence: medium
+    martial_style: [고술(蠱術), 독공, 무술]
+    representative_figures: [남란, 묘인봉]
+    appears_in: [비호외전, 설산비호, 다수 무협]
+    notes: |
+      운남·귀주 일대 묘족 영역. 오독교(五毒敎)·고술의 본거지.
+      중원에서는 신비롭고 위험한 곳으로 묘사.
+    sources: [비호외전]
+
+  - id: huijiang
+    name_ko: 신강 회강
+    name_zh: 新疆回疆
+    category: 세외
+    subcategory: null
+    base:
+      type: 도시
+      name: 카슈가르
+      province: 신강
+      coords: [39.4704, 75.9898]
+      coord_confidence: high
+    martial_style: [위구르 무공, 곡예무, 무도(舞刀)]
+    representative_figures: [향향공주, 호청동]
+    appears_in: [서검은구록, 비호외전]
+    notes: |
+      신강 위구르(회족) 부족 연합. 회부(回部) 12부족.
+      청 초기 회강 정복 이전 시기 묘사가 많음(서검은구록).
+    sources: [서검은구록]
+
+  - id: northern-yuan
+    name_ko: 새북 / 북원
+    name_zh: 塞北 / 北元
+    category: 세외
+    subcategory: null
+    base:
+      type: 도시
+      name: 카라코룸 (외몽골)
+      province: 외몽골
+      coords: [47.1850, 102.8300]
+      coord_confidence: medium
+    martial_style: [기마궁술, 격투술, 몽골 씨름]
+    representative_figures: [몽골 칸, 호광 등 만호장]
+    appears_in: [사조영웅전, 의천도룡기]
+    notes: |
+      명대 기준 북원 잔당과 타타르·오이라트.
+      중원의 영원한 북방 위협. 무공보다 군사력으로 묘사되는 경우 많음.
+    sources: [사조영웅전]
+
+  - id: tianshan
+    name_ko: 천산파
+    name_zh: 天山派
+    category: 세외
+    subcategory: null
+    base:
+      type: 산
+      name: 천산
+      province: 신강
+      coords: [43.0000, 84.0000]
+      coord_confidence: medium
+    martial_style: [검법, 빙공, 천산절매수]
+    representative_figures: [천산동모, 이추수]
+    appears_in: [천룡팔부, 백마소서풍]
+    notes: |
+      천산 일대 영취궁(靈鷲宮)·표묘봉 거점.
+      천산동모와 표묘봉의 36동 72도가 유명.
+      곤륜파와 구분되는 신강 북부 세력.
+    sources: [천룡팔부]
+
+  # ─────────────────────────────────────────────────────────
+  # 관(官) / 기타
+  # ─────────────────────────────────────────────────────────
+  - id: jinyiwei
+    name_ko: 금의위
+    name_zh: 錦衣衛
+    category: 관
+    subcategory: null
+    base:
+      type: 도시
+      name: 북경 자금성
+      province: 북경
+      coords: [39.9163, 116.3972]
+      coord_confidence: high
+    martial_style: [관군무공, 검법, 집단전술]
+    representative_figures: [육병, 모십팔]
+    appears_in: [녹정기, 명대 무협 다수]
+    notes: |
+      명 황제 친위 정보·호위 기관. 무림인을 감시·체포.
+      홍무제 때 창설, 명대 내내 황권의 검으로 작동.
+    sources: [녹정기, 사료]
+
+  - id: dongchang
+    name_ko: 동창
+    name_zh: 東廠
+    category: 관
+    subcategory: null
+    base:
+      type: 도시
+      name: 북경
+      province: 북경
+      coords: [39.9163, 116.3972]
+      coord_confidence: high
+    martial_style: [환관무공, 규화보전, 음공]
+    representative_figures: [위충현, 조반산]
+    appears_in: [소오강호, 녹정기]
+    notes: |
+      환관이 수장인 명대 비밀경찰. 금의위와 자주 충돌·협력.
+      규화보전이 동창 환관의 무공으로 설정되는 경우 많음(소오강호).
+    sources: [소오강호, 사료]
+
+  - id: murim-maeng
+    name_ko: 무림맹
+    name_zh: 武林盟
+    category: 기타
+    subcategory: null
+    base:
+      type: 도시
+      name: 정주 또는 낙양
+      province: 하남
+      coords: [34.7466, 113.6253]
+      coord_confidence: low
+    martial_style: [정파 연합]
+    representative_figures: [무림맹주(작품별 상이)]
+    appears_in: [한국 신무협 다수]
+    notes: |
+      구파일방·5대세가를 아우르는 정파 연합체.
+      김용 정전에는 없는 한국 신무협의 발명품에 가까움.
+      본단 위치는 보통 중원 중심부(정주·낙양).
+    sources: [한국 신무협 공통]
