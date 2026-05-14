@@ -804,6 +804,33 @@ function initBottomSheet(): void {
 
   // filters 렌더링 후 다시 측정 (DOM 변화 반영)
   requestAnimationFrame(updatePeekHeight);
+
+  // 시트 영역 어디서든 터치 시작하면 지도 interaction 비활성화
+  // → 손가락이 시트 밖 지도로 빠져나가도 지도가 panning되지 않음
+  const disableMapInteraction = () => {
+    map.dragPan.disable();
+    map.scrollZoom.disable();
+    map.doubleClickZoom.disable();
+    map.touchZoomRotate.disable();
+  };
+  const enableMapInteraction = () => {
+    map.dragPan.enable();
+    map.scrollZoom.enable();
+    map.doubleClickZoom.enable();
+    map.touchZoomRotate.enable();
+  };
+
+  sidebar.addEventListener('pointerdown', () => {
+    if (!isMobile()) return;
+    disableMapInteraction();
+    const onUp = () => {
+      enableMapInteraction();
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
+    };
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
+  });
 }
 
 function openSheetOnMobile(): void {
