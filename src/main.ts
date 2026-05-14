@@ -160,18 +160,18 @@ interface Region {
 }
 
 const REGIONS: Region[] = [
-  { ko: '중원', coords: [34.5, 113.0] },
-  { ko: '강남', coords: [30.5, 119.5] },
-  { ko: '파촉', coords: [30.5, 104.5] },
-  { ko: '영남', coords: [23.5, 110.5] },
-  { ko: '새북', coords: [44.0, 112.0] },
-  { ko: '서역', coords: [41.0, 82.0] },
-  { ko: '서장', coords: [31.0, 88.0] },
-  { ko: '남만', coords: [23.5, 101.0] },
-  { ko: '북해', coords: [52.0, 100.0] },
-  { ko: '요동', coords: [43.0, 124.0], size: 20 },
-  { ko: '천축', coords: [25.5, 84.0], size: 20 },
-  { ko: '대막', coords: [40.5, 92.0], size: 20 },
+  { ko: '중원', coords: [37.5, 112.5] },     // 소림·개방 위쪽
+  { ko: '강남', coords: [29.0, 121.0] },     // 동쪽 바다 근처
+  { ko: '파촉', coords: [33.0, 101.5] },     // 사천 좌측 빈 영역
+  { ko: '영남', coords: [24.5, 107.5] },     // 만인방 서쪽
+  { ko: '새북', coords: [46.0, 113.0] },     // 위쪽
+  { ko: '서역', coords: [43.5, 78.0] },      // 천마신교 서북
+  { ko: '서장', coords: [33.0, 85.0] },      // 포달랍궁 서북
+  { ko: '남만', coords: [22.0, 99.0] },      // 남쪽
+  { ko: '북해', coords: [54.0, 102.0] },     // 위쪽
+  { ko: '요동', coords: [44.5, 126.5], size: 20 },  // 모용 동쪽
+  { ko: '천축', coords: [27.0, 80.5], size: 20 },   // 대뢰음사 서쪽
+  { ko: '대막', coords: [42.5, 88.0], size: 20 },   // 광풍사 서북
 ];
 
 map.on('load', () => {
@@ -672,13 +672,6 @@ function labelForType(type: string): string {
 
 initReportModal();
 initBottomSheet();
-initReportFab();
-
-function initReportFab(): void {
-  const fab = document.getElementById('report-fab');
-  const reportBtn = document.getElementById('report-btn');
-  fab?.addEventListener('click', () => reportBtn?.click());
-}
 
 // body.sheet-open 클래스 sync — FAB 숨김/표시용
 function syncSheetOpenClass(): void {
