@@ -881,7 +881,6 @@ body.modal-open {
     bottom: 0;
     left: 0;
     right: 0;
-    /* 시트 높이를 동적으로 — peek 또는 full. max는 드래그 한계 */
     height: var(--sheet-peek);
     max-height: 80vh;
     max-height: 80dvh;
@@ -895,7 +894,7 @@ body.modal-open {
     box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.18);
     transition: height .28s cubic-bezier(.4, 0, .2, 1);
     z-index: 100;
-    padding-top: 12px;
+    padding-top: 0;
     padding-bottom: env(safe-area-inset-bottom, 0);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -910,22 +909,28 @@ body.modal-open {
     transition: none;
   }
 
-  /* 핸들 — drag indicator */
+  /* 핸들 — sticky 상단 클릭/드래그 영역 (시트 콘텐츠 스크롤되어도 항상 보임) */
   .sheet-handle {
     display: block;
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 44px;
-    height: 5px;
-    border-radius: 3px;
-    background: var(--line);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    background: var(--bg-paper);
     border: none;
     padding: 0;
     cursor: grab;
-    z-index: 2;
+    z-index: 3;
     touch-action: none;
+    /* 가운데 visible 핸들 막대 */
+    background-image: linear-gradient(var(--line), var(--line));
+    background-position: center 10px;
+    background-size: 44px 5px;
+    background-repeat: no-repeat;
+    /* 둥근 모서리에 핸들이 잘리지 않게 */
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
   }
 
   #sidebar.dragging .sheet-handle {
