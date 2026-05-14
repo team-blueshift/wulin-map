@@ -715,31 +715,19 @@ function initBottomSheet(): void {
     void header; void filters;
   };
 
-  // 시트 높이 기반 드래그
+  // fling 제스처 기반 — 드래그로 시트 높이 직접 조절 안 함
   let startY = 0;
-  let startHeight = 0;
+  let startTime = 0;
   let isDragging = false;
   let didMove = false;
-
-  const getPeekPx = (): number => {
-    const v = getComputedStyle(sidebar).getPropertyValue('--sheet-peek').trim();
-    const n = parseFloat(v);
-    return Number.isFinite(n) ? n : 340;
-  };
-
-  const getMaxHeightPx = (): number => {
-    return Math.round(window.innerHeight * 0.8);
-  };
 
   const onPointerDown = (e: PointerEvent) => {
     if (!isMobile()) return;
     startY = e.clientY;
-    startHeight = sidebar.offsetHeight;
+    startTime = performance.now();
     isDragging = true;
     didMove = false;
-    sidebar.classList.add('dragging');
     (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
-    // 시트 드래그 중에는 지도 interaction 비활성화 (지도로 손가락이 빠져도 panning 안 됨)
     map.dragPan.disable();
     map.scrollZoom.disable();
     map.doubleClickZoom.disable();
@@ -750,38 +738,40 @@ function initBottomSheet(): void {
     if (!isDragging) return;
     const deltaY = e.clientY - startY;
     if (Math.abs(deltaY) > 4) didMove = true;
-    // 위로 드래그(clientY 작아짐) → 시트 커짐
-    const next = Math.max(getPeekPx(), Math.min(getMaxHeightPx(), startHeight - deltaY));
-    sidebar.style.height = `${next}px`;
+    // 시트 height 직접 변경 안 함 (드래그 시각 효과 없음)
   };
 
   const onPointerUp = (e: PointerEvent) => {
     if (!isDragging) return;
     isDragging = false;
-    sidebar.classList.remove('dragging');
-    sidebar.style.height = '';
 
-    // 지도 interaction 복원
     map.dragPan.enable();
     map.scrollZoom.enable();
     map.doubleClickZoom.enable();
     map.touchZoomRotate.enable();
 
     if (!didMove) {
+      // 짧은 탭 → 토글
       sidebar.classList.toggle('open');
       return;
     }
 
-    const peek = getPeekPx();
-    const maxH = getMaxHeightPx();
+    // fling 판단 (속도 또는 충분한 거리)
     const deltaY = e.clientY - startY;
-    const finalHeight = Math.max(peek, Math.min(maxH, startHeight - deltaY));
-    // 임계: 중간 이상이면 open, 미만이면 peek
-    if (finalHeight > (peek + maxH) / 2) {
-      sidebar.classList.add('open');
-    } else {
-      sidebar.classList.remove('open');
+    const elapsedMs = Math.max(performance.now() - startTime, 1);
+    const velocity = Math.abs(deltaY) / elapsedMs; // px/ms
+    const isFling = velocity > 0.3 || Math.abs(deltaY) > 60;
+
+    if (isFling) {
+      if (deltaY < 0) {
+        // 위로 fling → 펼침
+        sidebar.classList.add('open');
+      } else {
+        // 아래로 fling → 접힘
+        sidebar.classList.remove('open');
+      }
     }
+    // 느린 드래그는 무시 (시트 상태 유지)
   };
 
   // 드래그 가능한 영역 — 핸들 + 헤더 + 카테고리 섹션 헤더
