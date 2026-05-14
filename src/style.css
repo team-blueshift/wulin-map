@@ -731,8 +731,9 @@ body.modal-open {
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   transition: transform .15s;
-  position: relative;
-  z-index: 5;
+  /* position·z-index는 maplibre의 .maplibregl-marker(absolute) 그대로 사용.
+     production 빌드 시 CSS 로드 순서로 인해 override되어 마커 위치가
+     깨지는 문제가 있었음 (dev에선 우리 CSS가 먼저라 OK, prod에선 반대). */
   display: flex;
   align-items: center;
   justify-content: center;
