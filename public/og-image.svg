@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- 종이 배경 -->
+  <rect width="1200" height="630" fill="#ede1c8"/>
+
+  <!-- 옅은 산 실루엣 (장식) -->
+  <g opacity="0.18" fill="#5a4a36">
+    <path d="M 0,500 L 120,360 L 200,420 L 340,320 L 460,440 L 580,360 L 720,440 L 860,340 L 1000,420 L 1100,380 L 1200,440 L 1200,630 L 0,630 Z"/>
+    <path d="M 0,560 L 160,460 L 280,500 L 420,440 L 540,520 L 680,460 L 820,520 L 960,460 L 1080,500 L 1200,480 L 1200,630 L 0,630 Z" opacity="0.7"/>
+  </g>
+
+  <!-- 도장 (좌측 상단) -->
+  <g transform="translate(72, 72)">
+    <rect width="80" height="80" rx="10" fill="#8a1c1c"/>
+    <text x="40" y="60"
+      font-family="'Songti SC', 'STSong', 'Nanum Myeongjo', serif"
+      font-size="56"
+      font-weight="700"
+      fill="#fdf3d8"
+      text-anchor="middle">武</text>
+  </g>
+
+  <!-- 메인 제목 -->
+  <text x="600" y="330"
+    font-family="'Songti SC', 'STSong', 'Nanum Myeongjo', serif"
+    font-size="180"
+    font-weight="700"
+    fill="#2b2014"
+    text-anchor="middle"
+    letter-spacing="40">武林地圖</text>
+
+  <!-- 부제 -->
+  <text x="600" y="410"
+    font-family="'Nanum Myeongjo', 'Noto Serif KR', serif"
+    font-size="36"
+    fill="#5a4a36"
+    text-anchor="middle"
+    letter-spacing="14">한국 신무협 세력 지도</text>
+
+  <!-- 푸터 -->
+  <text x="600" y="470"
+    font-family="'Nanum Myeongjo', 'Noto Serif KR', serif"
+    font-size="20"
+    fill="#5a4a36"
+    text-anchor="middle"
+    letter-spacing="6"
+    opacity="0.7">화산귀환 · 나노마신 · 광마회귀 · 북검전기 · 군림천하 외</text>
+
+  <!-- 하단 라인 -->
+  <line x1="400" y1="540" x2="800" y2="540" stroke="#b29a73" stroke-width="1"/>
+  <text x="600" y="570"
+    font-family="'Nanum Myeongjo', 'Noto Serif KR', serif"
+    font-size="16"
+    fill="#5a4a36"
+    text-anchor="middle"
+    letter-spacing="4"
+    opacity="0.6">team-blueshift / wulin-map</text>
+</svg>
