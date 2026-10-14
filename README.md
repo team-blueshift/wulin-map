@@ -39,8 +39,9 @@ wulin-map/
 │   └── archive/
 │       └── factions-classic-v1.yaml # v1 옛 무림 30개 (참고용)
 ├── docs/
-│   ├── design-tone.md               # 디자인 톤 가이드 (v3)
-│   ├── factions-reference.md        # 세력 풀 정리 + 출처
+│   ├── references/
+│   │   ├── design-tone.md           # 디자인 톤 가이드 (v3)
+│   │   └── factions-reference.md    # 세력 풀 정리 + 출처
 │   └── archive/
 │       └── iteration-log.md         # 디자인 의사결정 이력
 └── package.json
@@ -60,7 +61,7 @@ wulin-map/
 | **총** | **34** | |
 
 데이터 출처: 나무위키 한국 무협 페이지 + 무협 창작 커뮤니티(fanmooz·postype·디씨·펨코) 종합.
-자세한 풀과 작품별 변종은 [`docs/factions-reference.md`](docs/factions-reference.md) 참조.
+자세한 풀과 작품별 변종은 [`docs/references/factions-reference.md`](docs/references/factions-reference.md) 참조.
 
 ## 기능
 
@@ -78,6 +79,6 @@ wulin-map/
 
 ## 핵심 문서
 
-- **[디자인 톤 가이드](docs/design-tone.md)** — 컬러·타이포·지도 스타일·마커·인터랙션
-- **[세력 레퍼런스](docs/factions-reference.md)** — 한국 신무협 세력 풀, 출처, 작품별 변종
+- **[디자인 톤 가이드](docs/references/design-tone.md)** — 컬러·타이포·지도 스타일·마커·인터랙션
+- **[세력 레퍼런스](docs/references/factions-reference.md)** — 한국 신무협 세력 풀, 출처, 작품별 변종
 - **[디자인 이력](docs/archive/iteration-log.md)** — 옛 무림 → 신무협 전환, 베이스 타일 탐색 과정
